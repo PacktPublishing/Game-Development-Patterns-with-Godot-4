@@ -1,0 +1,86 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://6lho3i0p6oj6"]
+
+[ext_resource type="Texture2D" uid="uid://d31cbwjy7fwxd" path="res://Assets/Kings and Pigs/07-Pig With a Match/Lighting the Cannon (26x18).png" id="8_kpoen"]
+[ext_resource type="Texture2D" uid="uid://d3cqqrwfwe1ux" path="res://Assets/Kings and Pigs/07-Pig With a Match/Lighting the Match (26x18).png" id="9_ebrel"]
+[ext_resource type="Texture2D" uid="uid://bo4jgfgfe5oo8" path="res://Assets/Kings and Pigs/07-Pig With a Match/Match On (26x18).png" id="10_5pjo2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_517rf"]
+atlas = ExtResource("8_kpoen")
+region = Rect2(0, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbk74"]
+atlas = ExtResource("8_kpoen")
+region = Rect2(26, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5t2oq"]
+atlas = ExtResource("8_kpoen")
+region = Rect2(52, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0n2lx"]
+atlas = ExtResource("9_ebrel")
+region = Rect2(0, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_omge4"]
+atlas = ExtResource("9_ebrel")
+region = Rect2(26, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lt06e"]
+atlas = ExtResource("9_ebrel")
+region = Rect2(52, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1spyd"]
+atlas = ExtResource("10_5pjo2")
+region = Rect2(0, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8rsk"]
+atlas = ExtResource("10_5pjo2")
+region = Rect2(26, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_08b1p"]
+atlas = ExtResource("10_5pjo2")
+region = Rect2(52, 0, 26, 18)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_517rf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbk74")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5t2oq")
+}],
+"loop": false,
+"name": &"lighting_cannon",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0n2lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_omge4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lt06e")
+}],
+"loop": false,
+"name": &"lighting_match",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1spyd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8rsk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_08b1p")
+}],
+"loop": true,
+"name": &"match_on",
+"speed": 10.0
+}]
