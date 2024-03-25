@@ -130,6 +130,9 @@ position = Vector2(1136, 608)
 [node name="Diamond5" parent="Diamonds" instance=ExtResource("3_xjngc")]
 position = Vector2(856, 608)
 
+[node name="PopLabels" type="Node2D" parent="."]
+z_index = 1
+
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(512, 856)
 limit_left = 0
