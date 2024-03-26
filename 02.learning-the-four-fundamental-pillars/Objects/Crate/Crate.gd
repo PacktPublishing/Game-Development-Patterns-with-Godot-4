@@ -17,11 +17,18 @@ func _physics_process(delta):
 	body.move_and_slide()
 
 
-func _on_hurt_box_2d_hurt(damage):
-	health -= damage
+func _on_hurt_box_2d_hurt(_damage):
+	damage(_damage)
+
+
+func damage(_damage):
+	health -= _damage
 	if health < 1:
-		broke.emit()
-		animation_player.play("break")
+		shatter()
 	else:
 		animation_player.play("hit")
-	
+
+
+func shatter():
+	broke.emit()
+	animation_player.play("break")

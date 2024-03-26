@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://gcevl1ga7u1w"]
+[gd_scene load_steps=10 format=3 uid="uid://gcevl1ga7u1w"]
 
 [ext_resource type="Script" path="res://Levels/Level.gd" id="1_14qqf"]
 [ext_resource type="PackedScene" uid="uid://3am3io3b8img" path="res://Areas/InsideCastleTileMap.tscn" id="2_q7pcy"]
+[ext_resource type="PackedScene" uid="uid://b7ygipwdo26sw" path="res://Objects/Crate/LootCrate/LootCrate.tscn" id="3_2ibx0"]
 [ext_resource type="PackedScene" uid="uid://b6csjxqmlfpn8" path="res://Actors/KingPig/KingPigPlayer2D.tscn" id="3_va2pq"]
 [ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://Objects/Diamond/Diamond.tscn" id="3_xjngc"]
 
@@ -108,6 +109,24 @@ libraries = {
 [node name="Platforms" type="Node2D" parent="."]
 
 [node name="Crates" type="Node2D" parent="."]
+
+[node name="LootCrate" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1512, 880)
+
+[node name="LootCrate2" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1632, 872)
+
+[node name="LootCrate3" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1568, 784)
+
+[node name="LootCrate4" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1736, 880)
+
+[node name="LootCrate5" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1680, 784)
+
+[node name="LootCrate6" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1624, 704)
 
 [node name="Bombs" type="Node2D" parent="."]
 

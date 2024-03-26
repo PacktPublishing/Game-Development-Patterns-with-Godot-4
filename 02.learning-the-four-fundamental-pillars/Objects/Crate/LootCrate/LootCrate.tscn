@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7ygipwdo26sw"]
+
+[ext_resource type="PackedScene" uid="uid://trvjobk3jg3t" path="res://Objects/Crate/Crate.tscn" id="1_4hnpy"]
+[ext_resource type="Script" path="res://Objects/Crate/LootCrate/LootCrate.gd" id="2_c10v6"]
+[ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://Objects/Diamond/Diamond.tscn" id="3_wnx1m"]
+
+[node name="LootCrate" instance=ExtResource("1_4hnpy")]
+script = ExtResource("2_c10v6")
+loot_scene = ExtResource("3_wnx1m")
+drop_rate = 0.3
