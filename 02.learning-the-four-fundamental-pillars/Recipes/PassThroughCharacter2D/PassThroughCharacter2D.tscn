@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://c21v2tcsnb6gs" path="res://Recipes/BasicMovingCharacter2D/BasicMovingCharacter2D.tscn" id="1_xybqm"]
+[ext_resource type="Script" path="res://Recipes/PassThroughCharacter2D/PassThroughCharacter2D.gd" id="2_4h72j"]
+
+[node name="PassThroughCharacter2D" instance=ExtResource("1_xybqm")]
+collision_mask = 3
+script = ExtResource("2_4h72j")
+pass_through_layers = 2
+speed = null
+gravity = null
+jump_strength = null
