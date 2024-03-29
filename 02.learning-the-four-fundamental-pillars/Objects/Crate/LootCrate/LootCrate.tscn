@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Objects/Crate/LootCrate/LootCrate.gd" id="2_c10v6"]
 [ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://Objects/Diamond/Diamond.tscn" id="3_wnx1m"]
 
-[node name="LootCrate" instance=ExtResource("1_4hnpy")]
+[node name="Crate" instance=ExtResource("1_4hnpy")]
 script = ExtResource("2_c10v6")
 loot_scene = ExtResource("3_wnx1m")
 drop_rate = 0.3

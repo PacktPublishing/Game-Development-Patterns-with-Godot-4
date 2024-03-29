@@ -8,10 +8,10 @@ extends "res://Objects/Crate/Crate.gd"
 func drop() -> void:
 	var luck := randf()
 	
-	if luck <= drop_rate:
+	if luck >= drop_rate:
 		var loot: Node2D = loot_scene.instantiate()
 		loot.global_position = global_position
-		find_parent("Level").add_child(loot)
+		find_parent("Level").find_child("Diamonds").add_child(loot)
 
 
 func shatter():

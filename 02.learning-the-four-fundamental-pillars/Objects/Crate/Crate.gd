@@ -17,11 +17,11 @@ func _physics_process(delta):
 	body.move_and_slide()
 
 
-func _on_hurt_box_2d_hurt(_damage):
+func _on_hurt_box_2d_hurt(_damage: int) -> void:
 	damage(_damage)
 
 
-func damage(_damage):
+func damage(_damage: int) -> void:
 	health -= _damage
 	if health < 1:
 		shatter()
