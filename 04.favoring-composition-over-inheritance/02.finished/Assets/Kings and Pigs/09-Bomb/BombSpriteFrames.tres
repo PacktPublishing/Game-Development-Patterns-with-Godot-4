@@ -1,0 +1,63 @@
+[gd_resource type="SpriteFrames" load_steps=14 format=3 uid="uid://ba1g2hmdraiw4"]
+
+[ext_resource type="Texture2D" uid="uid://m582f7k7i3v1" path="res://Assets/Kings and Pigs/09-Bomb/Boooooom (52x56).png" id="1_wck1w"]
+[ext_resource type="Texture2D" uid="uid://bdk5uvx6opexj" path="res://Assets/Kings and Pigs/09-Bomb/Bomb Off.png" id="2_oja6e"]
+[ext_resource type="Texture2D" uid="uid://cc0hhce3sr4lt" path="res://Assets/Kings and Pigs/09-Bomb/Bomb On (52x56).png" id="3_hu8rc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgne8"]
+atlas = ExtResource("1_wck1w")
+region = Rect2(0, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4l3cc"]
+atlas = ExtResource("1_wck1w")
+region = Rect2(52, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jo7nu"]
+atlas = ExtResource("1_wck1w")
+region = Rect2(104, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu41w"]
+atlas = ExtResource("1_wck1w")
+region = Rect2(156, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4li6c"]
+atlas = ExtResource("1_wck1w")
+region = Rect2(208, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6twcm"]
+atlas = ExtResource("1_wck1w")
+region = Rect2(260, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2qbn"]
+atlas = ExtResource("3_hu8rc")
+region = Rect2(0, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2y4wr"]
+atlas = ExtResource("3_hu8rc")
+region = Rect2(52, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45hoc"]
+atlas = ExtResource("3_hu8rc")
+region = Rect2(104, 0, 52, 56)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nb8lk"]
+atlas = ExtResource("3_hu8rc")
+region = Rect2(156, 0, 52, 56)
+
+[resource]
+animations = [{
+"frames": [SubResource("AtlasTexture_pgne8"), SubResource("AtlasTexture_4l3cc"), SubResource("AtlasTexture_jo7nu"), SubResource("AtlasTexture_pu41w"), SubResource("AtlasTexture_4li6c"), SubResource("AtlasTexture_6twcm"), null],
+"loop": false,
+"name": &"boom",
+"speed": 10.0
+}, {
+"frames": [ExtResource("2_oja6e")],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [SubResource("AtlasTexture_h2qbn"), SubResource("AtlasTexture_2y4wr"), SubResource("AtlasTexture_45hoc"), SubResource("AtlasTexture_nb8lk")],
+"loop": true,
+"name": &"on",
+"speed": 10.0
+}]

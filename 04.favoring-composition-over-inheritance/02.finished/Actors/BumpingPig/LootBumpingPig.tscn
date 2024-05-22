@@ -1,0 +1,10 @@
+[gd_scene load_steps=4 format=3 uid="uid://d06sr7cq20aay"]
+
+[ext_resource type="PackedScene" uid="uid://co2jesq7s1cgo" path="res://Actors/BumpingPig/BumpingPig.tscn" id="1_ge542"]
+[ext_resource type="PackedScene" uid="uid://pfax2c3posjl" path="res://Objects/Loot2D/Loot2d.tscn" id="2_gpkcc"]
+[ext_resource type="Script" path="res://Actors/BumpingPig/LootBumpingPig.gd" id="2_hdqat"]
+
+[node name="BumpingPig" instance=ExtResource("1_ge542")]
+script = ExtResource("2_hdqat")
+
+[node name="Loot2D" parent="BumpingEnemy2D" index="4" instance=ExtResource("2_gpkcc")]
