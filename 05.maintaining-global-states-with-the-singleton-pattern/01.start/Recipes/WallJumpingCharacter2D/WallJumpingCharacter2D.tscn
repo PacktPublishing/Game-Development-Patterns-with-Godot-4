@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://datjjcj0av25b"]
+
+[ext_resource type="PackedScene" path="res://Recipes/PassThroughCharacter2D/PassThroughCharacter2D.tscn" id="1_pvf6f"]
+[ext_resource type="Script" path="res://Recipes/WallJumpingCharacter2D/WallJumpingCharacter2D.gd" id="2_yk2i6"]
+[ext_resource type="PackedScene" uid="uid://bggeq68cp22sp" path="res://Recipes/WallJumpingCharacter2D/WallDetectorRayCast2d.tscn" id="3_47ugn"]
+
+[node name="WallJumpingCharacter2D" instance=ExtResource("1_pvf6f")]
+script = ExtResource("2_yk2i6")
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+speed = 500.0
+gravity = 2000.0
+jump_strength = 800.0
+
+[node name="WallDetectorRayCast2D" parent="." index="0" instance=ExtResource("3_47ugn")]

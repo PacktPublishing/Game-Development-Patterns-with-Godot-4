@@ -1,0 +1,113 @@
+[gd_scene load_steps=9 format=3 uid="uid://bpnmgpokt7ayl"]
+
+[ext_resource type="Script" path="res://Screens/MainMenu/MainMenu.gd" id="1_e1qn7"]
+[ext_resource type="Texture2D" uid="uid://dmd42fyg600l6" path="res://Assets/Kings and Pigs/Kings and Pigs.png" id="1_yntnn"]
+[ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://Interface/Fonts/Kenney Thick.ttf" id="2_tuca1"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uemt4"]
+bg_color = Color(0.945098, 0.509804, 0.419608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubikg"]
+bg_color = Color(0.988235, 0.615686, 0.494118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wt72f"]
+bg_color = Color(0.890196, 0.301961, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_m4i7a"]
+bg_color = Color(0.94902, 0.545098, 0.458824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e8o8j"]
+bg_color = Color(0.890196, 0.301961, 0.301961, 1)
+
+[node name="MainMenu" type="Control"]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_e1qn7")
+start_scene_path = "res://Levels/Checkpoint/CheckpointLevel.tscn"
+controls_scene_path = "res://Screens/InputRemap/InputRemap.tscn"
+
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.219608, 0.317647, 1)
+
+[node name="TitleTextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -760.0
+offset_top = 184.0
+offset_right = 760.0
+offset_bottom = 589.0
+grow_horizontal = 2
+texture = ExtResource("1_yntnn")
+stretch_mode = 5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -159.0
+offset_top = 92.0
+offset_right = 159.0
+offset_bottom = 373.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("2_tuca1")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_uemt4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ubikg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wt72f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_m4i7a")
+text = "Start"
+
+[node name="ControlsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("2_tuca1")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_uemt4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ubikg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_wt72f")
+theme_override_styles/focus = SubResource("StyleBoxFlat_m4i7a")
+text = "Controls"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("2_tuca1")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_uemt4")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ubikg")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_e8o8j")
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/ControlsButton" to="." method="_on_controls_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
