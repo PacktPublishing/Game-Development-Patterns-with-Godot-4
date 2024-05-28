@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="Maintaining Global States with the Singleton Pattern"
+config/name="Maintaining Global States with the Singleton Pattern - Start"
 run/main_scene="res://Screens/MainMenu/MainMenu.tscn"
 config/features=PackedStringArray("4.2", "Mobile")
 config/icon="res://icon.svg"
