@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddka8ik4w0y7"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_7s7it"]
+[ext_resource type="PackedScene" uid="uid://gcevl1ga7u1w" path="res://Levels/Level.tscn" id="1_883ch"]
+[ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://Interface/Fonts/Kenney Thick.ttf" id="2_troow"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqiny"]
+font = ExtResource("2_troow")
+font_size = 61
+
+[node name="Game" type="Node"]
+script = ExtResource("1_7s7it")
+
+[node name="WorldCanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Level" parent="WorldCanvasLayer" instance=ExtResource("1_883ch")]
+
+[node name="InterfaceCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="InterfaceCanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -584.0
+offset_top = 64.0
+offset_right = -56.0
+offset_bottom = 136.0
+grow_horizontal = 0
+text = "123456789"
+label_settings = SubResource("LabelSettings_bqiny")
