@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" path="res://Recipes/PassThroughCharacter2D/PassThroughCharacter2D.tscn" id="1_xg7e8"]
+[ext_resource type="Script" path="res://Recipes/PassThroughCharacter2D/PassThroughPlayer2D.gd" id="2_rdlct"]
+
+[node name="PassThroughPlayer2D" instance=ExtResource("1_xg7e8")]
+collision_layer = 1
+script = ExtResource("2_rdlct")
+move_left_action = "move_left"
+move_right_action = "move_right"
+move_down_action = "move_down"
+jump_action = "jump"
+pass_through_layers = null
+speed = 500.0
+gravity = 2000.0
+jump_strength = 800.0
