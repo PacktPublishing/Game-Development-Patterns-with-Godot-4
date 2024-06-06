@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene load_steps=24 format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" path="res://Actors/BumpingPig/BumpingPig.gd" id="1_clwd4"]
 [ext_resource type="PackedScene" path="res://Recipes/BumpingEnemy2D/BumpingEnemy2D.tscn" id="1_ymmaj"]
@@ -7,14 +7,9 @@
 [ext_resource type="Texture2D" uid="uid://dm3qo6rlj8bht" path="res://Assets/Kings and Pigs/13-Dialogue Boxes/!!! Out (24x8).png" id="4_caw1t"]
 [ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://Recipes/Hazard2D/HurtArea2D.tscn" id="5_fo8ao"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="6_o0xur"]
+[ext_resource type="PackedScene" uid="uid://0d0g5a6x42tg" path="res://Game/Score/ScorePoint/ScorePoint.tscn" id="8_byunn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmfug"]
-size = Vector2(64, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxfwr"]
-size = Vector2(118, 64)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pwn"]
 size = Vector2(64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ptkfb"]
@@ -68,6 +63,15 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fxfwr"]
+size = Vector2(96, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s7pwn"]
+size = Vector2(56, 80)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrexf"]
+size = Vector2(128, 83)
+
 [sub_resource type="Animation" id="Animation_5b38s"]
 length = 0.001
 tracks/0/type = "value"
@@ -97,7 +101,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BumpingEnemy2D/HurtArea2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/HurtArea2D/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -109,14 +113,157 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BumpingEnemy2D/HitArea2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("BumpingEnemy2D/Sprites/HitArea2D/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
+"values": [true]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BumpingEnemy2D/Sprites/ExclamationBalloon:frame")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [2]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("BumpingEnemy2D/Sprites/ExclamationBalloon:animation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"out"]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BumpingEnemy2D/Sprites/VisionArea2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rxvhi"]
+resource_name = "attack"
+length = 1.00001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/ExclamationBalloon:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"in", &"out"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/ExclamationBalloon:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 0, 1, 2]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"idle", &"attack"]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.7, 0.8, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 0, 1, 2, 3, 4]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BumpingEnemy2D/Sprites/VisionArea2D/CollisionShape2D:disabled")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath(".")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": ["state", 0],
+"method": &"set"
+}]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BumpingEnemy2D/Sprites/HitArea2D/CollisionShape2D:disabled")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.7, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/7/type = "method"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("BumpingEnemy2D")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [false],
+"method": &"set_physics_process"
+}, {
+"args": [true],
+"method": &"set_physics_process"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_3ia5s"]
@@ -153,7 +300,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BumpingEnemy2D/HurtArea2D/CollisionShape2D:disabled")
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/HurtArea2D/CollisionShape2D:disabled")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -165,7 +312,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("BumpingEnemy2D/HitArea2D/CollisionShape2D:disabled")
+tracks/3/path = NodePath("BumpingEnemy2D/Sprites/HitArea2D/CollisionShape2D:disabled")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -270,7 +417,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BumpingEnemy2D/HurtArea2D/CollisionShape2D:disabled")
+tracks/4/path = NodePath("BumpingEnemy2D/Sprites/HurtArea2D/CollisionShape2D:disabled")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -283,6 +430,7 @@ tracks/4/keys = {
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_srs4m"]
 _data = {
 "RESET": SubResource("Animation_5b38s"),
+"attack": SubResource("Animation_rxvhi"),
 "die": SubResource("Animation_3ia5s"),
 "hit": SubResource("Animation_qrum4")
 }
@@ -297,20 +445,6 @@ speed = 200.0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D"]
 position = Vector2(0, -32)
 shape = SubResource("RectangleShape2D_bmfug")
-
-[node name="HurtArea2D" parent="BumpingEnemy2D" instance=ExtResource("5_fo8ao")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/HurtArea2D"]
-position = Vector2(3, -32)
-shape = SubResource("RectangleShape2D_fxfwr")
-debug_color = Color(0, 0.643137, 0.270588, 0.419608)
-
-[node name="HitArea2D" parent="BumpingEnemy2D" instance=ExtResource("6_o0xur")]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/HitArea2D"]
-position = Vector2(0, -32)
-shape = SubResource("RectangleShape2D_s7pwn")
-debug_color = Color(0.960784, 0, 0.501961, 0.419608)
 
 [node name="Sprites" type="Node2D" parent="BumpingEnemy2D"]
 
@@ -327,10 +461,38 @@ sprite_frames = SubResource("SpriteFrames_p3wuy")
 animation = &"out"
 frame = 2
 
+[node name="HurtArea2D" parent="BumpingEnemy2D/Sprites" instance=ExtResource("5_fo8ao")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/HurtArea2D"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_fxfwr")
+debug_color = Color(0, 0.643137, 0.270588, 0.419608)
+
+[node name="HitArea2D" parent="BumpingEnemy2D/Sprites" instance=ExtResource("6_o0xur")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/HitArea2D"]
+position = Vector2(-52, -64)
+shape = SubResource("RectangleShape2D_s7pwn")
+disabled = true
+debug_color = Color(0.960784, 0, 0.501961, 0.419608)
+
+[node name="VisionArea2D" type="Area2D" parent="BumpingEnemy2D/Sprites"]
+collision_layer = 0
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/VisionArea2D"]
+position = Vector2(0, -42.5)
+shape = SubResource("RectangleShape2D_lrexf")
+debug_color = Color(0.588235, 0.54902, 0, 0.419608)
+
+[node name="ScorePoint" parent="BumpingEnemy2D" instance=ExtResource("8_byunn")]
+position = Vector2(0, -32)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_srs4m")
 }
 
-[connection signal="hurt" from="BumpingEnemy2D/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
-[connection signal="animation_finished" from="BumpingEnemy2D/Sprites/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="hurt" from="BumpingEnemy2D/Sprites/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
+[connection signal="area_entered" from="BumpingEnemy2D/Sprites/VisionArea2D" to="." method="_on_vision_area_2d_area_entered"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

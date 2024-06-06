@@ -84,6 +84,7 @@ move_up={
 2d_physics/layer_1="Environment"
 2d_physics/layer_2="Pass Through"
 2d_physics/layer_3="Combat"
+2d_physics/layer_4="Interaction"
 2d_physics/layer_5="Visibility"
 2d_physics/layer_8="Detection"
 
@@ -91,5 +92,3 @@ move_up={
 
 textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
-2d/snap/snap_2d_transforms_to_pixel=true
-2d/snap/snap_2d_vertices_to_pixel=true

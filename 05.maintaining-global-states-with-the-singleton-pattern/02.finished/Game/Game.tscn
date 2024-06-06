@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://ddka8ik4w0y7"]
 
-[ext_resource type="Script" path="res://Game.gd" id="1_7s7it"]
-[ext_resource type="PackedScene" uid="uid://gcevl1ga7u1w" path="res://Levels/Level.tscn" id="1_883ch"]
+[ext_resource type="Script" path="res://Game/Game.gd" id="1_7s7it"]
+[ext_resource type="PackedScene" uid="uid://cxkf516021f86" path="res://Levels/Level1/Level1.tscn" id="2_r3sxr"]
 [ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://Interface/Fonts/Kenney Thick.ttf" id="2_troow"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_bqiny"]
@@ -14,7 +14,7 @@ script = ExtResource("1_7s7it")
 [node name="WorldCanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Level" parent="WorldCanvasLayer" instance=ExtResource("1_883ch")]
+[node name="Level" parent="WorldCanvasLayer" instance=ExtResource("2_r3sxr")]
 
 [node name="InterfaceCanvasLayer" type="CanvasLayer" parent="."]
 

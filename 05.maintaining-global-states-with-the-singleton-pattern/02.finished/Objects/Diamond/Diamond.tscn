@@ -1,8 +1,9 @@
-[gd_scene load_steps=17 format=3 uid="uid://c80fci1r5e5lj"]
+[gd_scene load_steps=18 format=3 uid="uid://c80fci1r5e5lj"]
 
 [ext_resource type="Script" path="res://Objects/Diamond/Diamond.gd" id="1_b3oxm"]
 [ext_resource type="Texture2D" uid="uid://h0o7dw73opgc" path="res://Assets/Kings and Pigs/12-Live and Coins/Big Diamond Idle (18x14).png" id="1_fumts"]
 [ext_resource type="PackedScene" uid="uid://bqpj06nn7ioem" path="res://Recipes/InteractiveArea2D/InteractiveArea2D.tscn" id="2_nd4ue"]
+[ext_resource type="PackedScene" uid="uid://0d0g5a6x42tg" path="res://Game/Score/ScorePoint/ScorePoint.tscn" id="4_0p3de"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjdbl"]
 atlas = ExtResource("1_fumts")
@@ -109,5 +110,7 @@ shape = SubResource("CircleShape2D_v1kg7")
 z_index = -1
 shape = SubResource("CircleShape2D_6024b")
 debug_color = Color(0, 0.647059, 0.168627, 0.419608)
+
+[node name="ScorePoint" parent="." instance=ExtResource("4_0p3de")]
 
 [connection signal="interaction_available" from="InteractiveArea2D" to="." method="_on_interactive_area_2d_interaction_available"]

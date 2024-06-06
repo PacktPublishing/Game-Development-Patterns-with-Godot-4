@@ -12,6 +12,7 @@ signal died
 
 var fall_speed = 0.0
 
+
 func _physics_process(delta):
 	super(delta)
 	
@@ -46,6 +47,14 @@ func _unhandled_input(event):
 			if is_on_floor():
 				animation_player.play("attack")
 	super(event)
+
+
+func fade_in():
+	animation_player.play("fade_in")
+
+
+func fade_out():
+	animation_player.play("fade_out")
 
 
 func _on_animated_sprite_2d_animation_finished():

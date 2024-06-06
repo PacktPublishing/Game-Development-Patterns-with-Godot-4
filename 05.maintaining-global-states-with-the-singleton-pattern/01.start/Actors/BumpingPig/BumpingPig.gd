@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var health = max_health
 
-enum STATES{RUN, IDLE, DEAD}
+enum STATES{RUN, IDLE, HIT, DEAD, ATTACK}
 
 var state = STATES.RUN
 
@@ -26,6 +26,11 @@ func _physics_process(delta):
 			animated_sprites.play("run")
 		STATES.DEAD:
 			body.direction = 0
+		STATES.ATTACK:
+			animation_player.play("attack")
+		STATES.HIT:
+			animation_player.play("hit")
+			
 	
 	if body.direction > 0:
 		sprites.scale.x = -1
@@ -41,7 +46,9 @@ func die():
 func hit(damage):
 	health -= damage
 	if health >= 1:
-		animation_player.play("hit")
+		state = STATES.HIT
+		await animation_player.animation_finished
+		state = STATES.RUN
 	else:
 		die()
 
@@ -50,7 +57,10 @@ func _on_hurt_area_2d_hurt(damage):
 	hit(damage)
 
 
-func _on_animated_sprite_2d_animation_finished():
-	match animated_sprites.animation:
-		"hit":
-			state = STATES.RUN
+func _on_vision_area_2d_area_entered(area: Area2D) -> void:
+	state = STATES.ATTACK
+
+
+func _on_animation_player_animation_changed(old_name: StringName, new_name: StringName) -> void:
+	var exclamation_balloon = $BumpingEnemy2D/Sprites/ExclamationBalloon
+	exclamation_balloon.visible = new_name == "attack"

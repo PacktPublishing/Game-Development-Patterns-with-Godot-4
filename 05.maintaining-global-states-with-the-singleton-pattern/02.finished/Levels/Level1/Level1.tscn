@@ -1,0 +1,208 @@
+[gd_scene load_steps=13 format=3 uid="uid://cxkf516021f86"]
+
+[ext_resource type="PackedScene" uid="uid://gcevl1ga7u1w" path="res://Levels/Level.tscn" id="1_fph8s"]
+[ext_resource type="PackedScene" uid="uid://b7ygipwdo26sw" path="res://Objects/Crate/LootCrate/LootCrate.tscn" id="2_be4tf"]
+[ext_resource type="PackedScene" uid="uid://bo270p7b02xwj" path="res://Objects/PathFollowPlatform/PathFollowPlatform2D.tscn" id="2_btren"]
+[ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://Objects/Diamond/Diamond.tscn" id="3_1qtke"]
+[ext_resource type="PackedScene" uid="uid://co2jesq7s1cgo" path="res://Actors/BumpingPig/BumpingPig.tscn" id="3_vsa4p"]
+[ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://Objects/Bomb/Bomb.tscn" id="4_of4bt"]
+[ext_resource type="PackedScene" uid="uid://co68v6mfnhdj1" path="res://Actors/CratePig/CratePig.tscn" id="6_y8bfe"]
+[ext_resource type="PackedScene" uid="uid://caheecjbjsnwd" path="res://Objects/Door/Door.tscn" id="8_tkleq"]
+
+[sub_resource type="Curve2D" id="Curve2D_w8egf"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, 3456, 1120, 0, 0, 0, 0, 3456, 776)
+}
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_glytk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollowPlatform2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_y8t6x"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("PathFollowPlatform2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(-2, -2),
+"update": 0,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gcfyf"]
+_data = {
+"RESET": SubResource("Animation_glytk"),
+"move": SubResource("Animation_y8t6x")
+}
+
+[node name="Level" instance=ExtResource("1_fph8s")]
+metadata/_edit_horizontal_guides_ = [220.0, 1472.0]
+metadata/_edit_vertical_guides_ = [0.0, 4540.0]
+
+[node name="TileMap" parent="." index="1"]
+layer_0/tile_data = PackedInt32Array(524303, 196609, 1, 458767, 131073, 9, 393231, 131073, 8, 327695, 131073, 7, 262159, 196609, 3, 196623, 196609, 2, 131087, 458753, 1, 65551, 131073, 2, 524302, 131073, 1, 458766, 131073, 9, 393230, 131073, 8, 327694, 131073, 7, 262158, 131073, 3, 196622, 131073, 2, 131086, 131073, 2, 65550, 131073, 2, 524301, 131073, 1, 458765, 131073, 9, 393229, 131073, 8, 327693, 131073, 7, 262157, 131073, 3, 196621, 131073, 2, 131085, 131073, 2, 65549, 131073, 2, 524300, 131073, 1, 458764, 131073, 9, 393228, 131073, 8, 327692, 131073, 7, 262156, 131073, 3, 196620, 131073, 2, 131084, 131073, 2, 65548, 131073, 2, 524299, 131073, 1, 458763, 131073, 9, 393227, 524289, 8, 327691, 65537, 7, 262155, 131073, 3, 196619, 131073, 2, 131083, 131073, 2, 65547, 131073, 2, 524298, 131073, 1, 458762, 65537, 9, 393226, 524289, 10, 327690, 196609, 3, 262154, 458753, 1, 196618, 131073, 2, 131082, 131073, 2, 65546, 131073, 2, 524297, 458753, 2, 458761, 196609, 1, 393225, 131073, 11, 327689, 65537, 3, 262153, 524289, 1, 196617, 131073, 2, 131081, 131073, 2, 65545, 131073, 2, 524296, 524289, 2, 458760, 65537, 1, 393224, 458753, 11, 327688, 196609, 7, 262152, 131073, 3, 196616, 131073, 2, 131080, 131073, 2, 65544, 131073, 2, 524295, 131073, 1, 458759, 196609, 9, 393223, 1114113, 8, 327687, 65537, 7, 262151, 131073, 3, 196615, 131073, 2, 131079, 131073, 2, 65543, 131073, 2, 524294, 131073, 1, 458758, 65537, 9, 393222, 524289, 10, 327686, 196609, 3, 262150, 458753, 1, 196614, 131073, 2, 131078, 131073, 2, 65542, 131073, 2, 524293, 720897, 1, 458757, 327681, 1, 393221, 131073, 11, 327685, 131073, 3, 262149, 131073, 2, 196613, 131073, 2, 131077, 131073, 2, 65541, 131073, 2, 524292, 131073, 1, 458756, 196609, 9, 393220, 458753, 10, 327684, 65537, 3, 262148, 524289, 1, 196612, 131073, 2, 131076, 131073, 2, 65540, 131073, 2, 524291, 131073, 1, 458755, 131073, 9, 393219, 458753, 8, 327683, 196609, 7, 262147, 131073, 3, 196611, 131073, 2, 131075, 131073, 2, 65539, 131073, 2, 524290, 131073, 1, 458754, 65537, 9, 393218, 65537, 8, 327682, 65537, 7, 262146, 131073, 3, 196610, 131073, 2, 131074, 131073, 2, 65538, 131073, 2, 524289, 458753, 2, 458753, 196609, 2, 393217, 196609, 2, 327681, 196609, 2, 262145, 458753, 1, 196609, 131073, 2, 131073, 131073, 2, 65537, 131073, 2, 524288, 131073, 2, 458752, 131073, 2, 393216, 131073, 2, 327680, 131073, 2, 262144, 131073, 2, 196608, 131073, 2, 131072, 131073, 2, 65536, 131073, 2, 458768, 524289, 7, 393232, 131073, 8, 720932, 131073, 2, 655396, 131073, 2, 589860, 131073, 2, 524324, 131073, 2, 458788, 131073, 2, 393252, 131073, 2, 327716, 131073, 2, 262180, 131073, 2, 196644, 131073, 2, 131108, 131073, 2, 65572, 131073, 2, 720931, 131073, 2, 655395, 131073, 2, 589859, 131073, 2, 524323, 131073, 2, 458787, 131073, 2, 393251, 131073, 2, 327715, 131073, 2, 262179, 131073, 2, 196643, 131073, 2, 131107, 131073, 2, 65571, 131073, 2, 655394, 131073, 2, 589858, 524289, 2, 524322, 65537, 2, 458786, 524289, 1, 393250, 131073, 2, 327714, 524289, 2, 262178, 65537, 2, 196642, 524289, 1, 131106, 131073, 2, 65570, 131073, 2, 720929, 131073, 2, 655393, 524289, 2, 589857, 65537, 1, 524321, 196609, 11, 458785, 131073, 3, 393249, 524289, 2, 327713, 65537, 1, 262177, 196609, 11, 196641, 131073, 3, 131105, 131073, 2, 65569, 131073, 2, 720928, 131073, 2, 655392, 131073, 1, 589856, 196609, 9, 524320, 458753, 10, 458784, 131073, 3, 393248, 131073, 1, 327712, 196609, 9, 262176, 458753, 10, 196640, 131073, 3, 131104, 131073, 2, 65568, 131073, 2, 720927, 131073, 2, 655391, 131073, 1, 589855, 131073, 9, 524319, 131073, 7, 458783, 131073, 3, 393247, 131073, 1, 327711, 131073, 9, 262175, 131073, 7, 196639, 65537, 3, 131103, 524289, 1, 65567, 131073, 2, 720926, 131073, 2, 655390, 131073, 1, 589854, 131073, 9, 524318, 131073, 7, 458782, 65537, 3, 393246, 65537, 1, 327710, 131073, 9, 262174, 458753, 8, 196638, 196609, 7, 131102, 131073, 3, 65566, 131073, 2, 720925, 131073, 2, 655389, 131073, 1, 589853, 131073, 9, 524317, 458753, 8, 458781, 196609, 8, 393245, 196609, 8, 327709, 1114113, 8, 262173, 65537, 8, 196637, 65537, 7, 131101, 131073, 3, 65565, 131073, 2, 720924, 131073, 2, 655388, 131073, 1, 589852, 65537, 9, 524316, 524289, 7, 458780, 131073, 8, 393244, 131073, 8, 327708, 131073, 7, 262172, 196609, 3, 196636, 196609, 2, 131100, 458753, 1, 65564, 131073, 2, 720923, 131073, 2, 655387, 458753, 2, 589851, 196609, 1, 524315, 131073, 9, 458779, 131073, 8, 393243, 131073, 8, 327707, 131073, 7, 262171, 65537, 3, 196635, 65537, 2, 131099, 524289, 1, 65563, 131073, 2, 720922, 131073, 2, 655386, 524289, 2, 589850, 65537, 1, 524314, 131073, 9, 458778, 131073, 8, 393242, 131073, 8, 327706, 458753, 8, 262170, 196609, 8, 196634, 196609, 7, 131098, 131073, 3, 65562, 131073, 2, 720921, 131073, 2, 655385, 131073, 1, 589849, 196609, 9, 524313, 458753, 7, 458777, 131073, 8, 393241, 131073, 8, 327705, 131073, 8, 262169, 131073, 8, 196633, 131073, 7, 131097, 131073, 3, 65561, 131073, 2, 720920, 131073, 2, 655384, 131073, 1, 589848, 65537, 9, 524312, 65537, 8, 458776, 524289, 7, 393240, 131073, 8, 327704, 131073, 8, 262168, 131073, 8, 196632, 131073, 7, 131096, 131073, 3, 65560, 131073, 2, 720919, 131073, 2, 655383, 458753, 2, 589847, 196609, 2, 524311, 196609, 1, 458775, 131073, 9, 393239, 131073, 8, 327703, 131073, 8, 262167, 131073, 8, 196631, 131073, 7, 131095, 131073, 3, 65559, 131073, 2, 720918, 131073, 2, 655382, 524289, 2, 589846, 65537, 2, 524310, 65537, 1, 458774, 131073, 9, 393238, 524289, 8, 327702, 65537, 8, 262166, 65537, 8, 196630, 65537, 7, 131094, 131073, 3, 65558, 131073, 2, 720917, 131073, 2, 655381, 131073, 1, 589845, 196609, 9, 524309, 196609, 8, 458773, 458753, 7, 393237, 131073, 7, 327701, 196609, 3, 262165, 196609, 2, 196629, 196609, 2, 131093, 458753, 1, 65557, 131073, 2, 720916, 131073, 2, 655380, 131073, 1, 589844, 131073, 9, 524308, 131073, 8, 458772, 131073, 8, 393236, 131073, 7, 327700, 131073, 3, 262164, 131073, 2, 196628, 131073, 2, 131092, 131073, 2, 65556, 131073, 2, 720915, 131073, 2, 655379, 131073, 1, 589843, 131073, 9, 524307, 131073, 8, 458771, 131073, 8, 393235, 131073, 7, 327699, 65537, 3, 262163, 65537, 2, 196627, 65537, 2, 131091, 524289, 1, 65555, 131073, 2, 720914, 131073, 2, 655378, 131073, 1, 589842, 131073, 9, 524306, 131073, 8, 458770, 131073, 8, 393234, 458753, 8, 327698, 196609, 8, 262162, 196609, 8, 196626, 196609, 7, 131090, 131073, 3, 65554, 131073, 2, 720913, 131073, 2, 655377, 131073, 1, 589841, 131073, 9, 524305, 131073, 8, 458769, 131073, 8, 393233, 131073, 8, 327697, 131073, 8, 262161, 131073, 8, 196625, 131073, 7, 131089, 131073, 3, 65553, 131073, 2, 720930, 131073, 2, 720912, 131073, 2, 655376, 131073, 1, 589840, 65537, 9, 524304, 65537, 8, 327696, 524289, 8, 262160, 65537, 8, 196624, 65537, 7, 131088, 131073, 3, 65552, 131073, 2, 720911, 131073, 2, 655375, 458753, 2, 589839, 196609, 2, 720910, 131073, 2, 655374, 131073, 2, 589838, 131073, 2, 720909, 131073, 2, 655373, 131073, 2, 589837, 131073, 2, 720908, 131073, 2, 655372, 131073, 2, 589836, 131073, 2, 720907, 131073, 2, 655371, 131073, 2, 589835, 131073, 2, 720906, 131073, 2, 655370, 131073, 2, 589834, 131073, 2, 720905, 131073, 2, 655369, 131073, 2, 589833, 131073, 2, 720904, 131073, 2, 655368, 131073, 2, 589832, 131073, 2, 720903, 131073, 2, 655367, 131073, 2, 589831, 131073, 2, 720902, 131073, 2, 655366, 131073, 2, 589830, 131073, 2, 720901, 131073, 2, 655365, 131073, 2, 589829, 131073, 2, 720900, 131073, 2, 655364, 131073, 2, 589828, 131073, 2, 720899, 131073, 2, 655363, 131073, 2, 589827, 131073, 2, 720898, 131073, 2, 655362, 131073, 2, 589826, 131073, 2, 720897, 131073, 2, 655361, 131073, 2, 589825, 131073, 2, 720896, 131073, 2, 655360, 131073, 2, 589824, 131073, 2)
+layer_1/tile_data = PackedInt32Array(327687, 131074, 3, 393223, 131074, 4, 327688, 196610, 3, 393224, 196610, 4, 262174, 262146, 3, 327710, 262146, 4, 262175, 327682, 3, 327711, 327682, 4, 196630, 131074, 3, 262166, 131074, 4, 196631, 196610, 3, 262167, 196610, 4, 196633, 262146, 3, 262169, 262146, 4, 196634, 327682, 3, 262170, 327682, 4)
+layer_2/tile_data = PackedInt32Array(262160, 65538, 1, 327696, 65538, 2, 393232, 65538, 2, 458768, 65538, 3, 262162, 65538, 1, 327698, 65538, 2, 393234, 65538, 2, 458770, 65538, 3, 262173, 65538, 1, 327709, 65538, 2, 393245, 65538, 2, 458781, 65538, 3)
+layer_3/tile_data = PackedInt32Array(458758, 131074, 1, 458759, 262146, 1, 524304, 131074, 1, 524305, 196610, 1, 524306, 196610, 1, 524307, 196610, 1, 524308, 196610, 1, 524309, 262146, 1, 589840, 131074, 1, 589841, 196610, 1, 589842, 196610, 1, 589843, 196610, 1, 589844, 196610, 1, 589845, 262146, 1, 458780, 131074, 2, 458781, 262146, 2, 393234, 262146, 2, 393233, 196610, 2, 393232, 131074, 2, 458765, 327682, 2, 327702, 131074, 2, 327703, 196610, 2, 327704, 196610, 2, 327705, 262146, 2)
+
+[node name="Path2D" type="Path2D" parent="Platforms" index="0"]
+curve = SubResource("Curve2D_w8egf")
+
+[node name="PathFollowPlatform2D" parent="Platforms/Path2D" index="0" instance=ExtResource("2_btren")]
+position = Vector2(3456, 1120)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Path2D" index="1"]
+libraries = {
+"": SubResource("AnimationLibrary_gcfyf")
+}
+autoplay = "move"
+
+[node name="Door2" parent="Doors" index="0" instance=ExtResource("8_tkleq")]
+position = Vector2(4124, 1276)
+target_scene = "res://Levels/Level2/Level2.tscn"
+
+[node name="SecretDoor" parent="Doors" index="1" instance=ExtResource("8_tkleq")]
+position = Vector2(3200, 1276)
+target_scene = "res://Levels/Level2/Level2.tscn"
+target_door = "SecretDoor"
+
+[node name="Door" parent="Doors" index="2"]
+position = Vector2(432, 1020)
+
+[node name="Bomb" parent="Bombs" index="0" instance=ExtResource("4_of4bt")]
+position = Vector2(3652, 888)
+
+[node name="Bomb2" parent="Bombs" index="1" instance=ExtResource("4_of4bt")]
+position = Vector2(4040, 763)
+
+[node name="Bomb3" parent="Bombs" index="2" instance=ExtResource("4_of4bt")]
+position = Vector2(1996, 1016)
+
+[node name="Diamond" parent="Diamonds" index="0" instance=ExtResource("3_1qtke")]
+position = Vector2(704, 860)
+
+[node name="Diamond12" parent="Diamonds" index="1" instance=ExtResource("3_1qtke")]
+position = Vector2(1052, 860)
+
+[node name="Diamond2" parent="Diamonds" index="2" instance=ExtResource("3_1qtke")]
+position = Vector2(2136, 736)
+
+[node name="Diamond3" parent="Diamonds" index="3" instance=ExtResource("3_1qtke")]
+position = Vector2(2236, 732)
+
+[node name="Diamond4" parent="Diamonds" index="4" instance=ExtResource("3_1qtke")]
+position = Vector2(2328, 735)
+
+[node name="Diamond5" parent="Diamonds" index="5" instance=ExtResource("3_1qtke")]
+position = Vector2(4180, 740)
+
+[node name="Diamond6" parent="Diamonds" index="6" instance=ExtResource("3_1qtke")]
+position = Vector2(4256, 612)
+
+[node name="Diamond7" parent="Diamonds" index="7" instance=ExtResource("3_1qtke")]
+position = Vector2(4316, 612)
+
+[node name="Diamond8" parent="Diamonds" index="8" instance=ExtResource("3_1qtke")]
+position = Vector2(4292, 576)
+
+[node name="Diamond9" parent="Diamonds" index="9" instance=ExtResource("3_1qtke")]
+position = Vector2(3892, 732)
+
+[node name="Diamond10" parent="Diamonds" index="10" instance=ExtResource("3_1qtke")]
+position = Vector2(3892, 732)
+
+[node name="Diamond11" parent="Diamonds" index="11" instance=ExtResource("3_1qtke")]
+position = Vector2(3156, 608)
+
+[node name="Crate" parent="Crates" index="0" instance=ExtResource("2_be4tf")]
+position = Vector2(812, 1032)
+
+[node name="Crate2" parent="Crates" index="1" instance=ExtResource("2_be4tf")]
+position = Vector2(884, 1032)
+
+[node name="Crate3" parent="Crates" index="2" instance=ExtResource("2_be4tf")]
+position = Vector2(952, 1032)
+
+[node name="Crate4" parent="Crates" index="3" instance=ExtResource("2_be4tf")]
+position = Vector2(2092, 1288)
+
+[node name="Crate5" parent="Crates" index="4" instance=ExtResource("2_be4tf")]
+position = Vector2(2172, 1288)
+
+[node name="Crate6" parent="Crates" index="5" instance=ExtResource("2_be4tf")]
+position = Vector2(2128, 1220)
+
+[node name="Crate7" parent="Crates" index="6" instance=ExtResource("2_be4tf")]
+position = Vector2(2776, 1156)
+
+[node name="Crate8" parent="Crates" index="7" instance=ExtResource("2_be4tf")]
+position = Vector2(2696, 1156)
+
+[node name="Crate9" parent="Crates" index="8" instance=ExtResource("2_be4tf")]
+position = Vector2(2736, 1088)
+
+[node name="Crate10" parent="Crates" index="9" instance=ExtResource("2_be4tf")]
+position = Vector2(3116, 1288)
+
+[node name="Crate11" parent="Crates" index="10" instance=ExtResource("2_be4tf")]
+position = Vector2(3192, 1288)
+
+[node name="Crate12" parent="Crates" index="11" instance=ExtResource("2_be4tf")]
+position = Vector2(3152, 1220)
+
+[node name="Crate13" parent="Crates" index="12" instance=ExtResource("2_be4tf")]
+position = Vector2(3244, 1220)
+
+[node name="Crate14" parent="Crates" index="13" instance=ExtResource("2_be4tf")]
+position = Vector2(4296, 1156)
+drop_rate = 0.0
+
+[node name="BumpingPig" parent="Enemies" index="0" instance=ExtResource("3_vsa4p")]
+position = Vector2(2740, 1256)
+
+[node name="BumpingPig2" parent="Enemies" index="1" instance=ExtResource("3_vsa4p")]
+position = Vector2(2116, 1136)
+initial_direction = 1
+
+[node name="BumpingPig3" parent="Enemies" index="2" instance=ExtResource("3_vsa4p")]
+position = Vector2(3652, 1256)
+initial_direction = 1
+
+[node name="CratePig" parent="Enemies" index="3" instance=ExtResource("6_y8bfe")]
+position = Vector2(3268, 1280)
+
+[node name="CratePig2" parent="Enemies" index="4" instance=ExtResource("6_y8bfe")]
+position = Vector2(2864, 640)
+
+[node name="CratePig3" parent="Enemies" index="5" instance=ExtResource("6_y8bfe")]
+position = Vector2(2940, 640)
+
+[node name="Camera2D" parent="." index="9"]
+position = Vector2(416, 968)
+limit_top = 220
+limit_right = 4540
+limit_bottom = 1472
+
+[node name="PlayerCharacter2D" parent="." index="10"]
+position = Vector2(416, 968)
+
+[connection signal="opened" from="Doors/Door2" to="." method="_on_door_opened"]
+[connection signal="opened" from="Doors/SecretDoor" to="." method="_on_door_opened"]

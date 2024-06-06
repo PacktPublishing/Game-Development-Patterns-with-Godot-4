@@ -33,7 +33,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_e1qn7")
-start_scene_path = "res://Levels/Checkpoint/CheckpointLevel.tscn"
+start_scene_path = "res://Game.tscn"
 controls_scene_path = "res://Screens/InputRemap/InputRemap.tscn"
 
 [node name="BackgroundColorRect" type="ColorRect" parent="."]
