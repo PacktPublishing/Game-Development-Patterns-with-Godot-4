@@ -1,0 +1,171 @@
+[gd_scene load_steps=10 format=3 uid="uid://gcevl1ga7u1w"]
+
+[ext_resource type="Script" path="res://Levels/Level.gd" id="1_14qqf"]
+[ext_resource type="PackedScene" uid="uid://3am3io3b8img" path="res://Areas/InsideCastleTileMap.tscn" id="2_q7pcy"]
+[ext_resource type="PackedScene" uid="uid://trvjobk3jg3t" path="res://Objects/Crate/Crate.tscn" id="3_2ibx0"]
+[ext_resource type="PackedScene" uid="uid://b6csjxqmlfpn8" path="res://Actors/KingPig/KingPigPlayer2D.tscn" id="3_va2pq"]
+[ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://Objects/Diamond/Diamond.tscn" id="3_xjngc"]
+
+[sub_resource type="Animation" id="Animation_d83j8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t0l71"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yrlw1"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwo6k"]
+_data = {
+"RESET": SubResource("Animation_d83j8"),
+"fade_in": SubResource("Animation_t0l71"),
+"fade_out": SubResource("Animation_yrlw1")
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_14qqf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_mwo6k")
+}
+
+[node name="TileMap" parent="." instance=ExtResource("2_q7pcy")]
+
+[node name="Platforms" type="Node2D" parent="."]
+
+[node name="Crates" type="Node2D" parent="."]
+
+[node name="LootCrate" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1512, 880)
+
+[node name="LootCrate2" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1632, 872)
+
+[node name="LootCrate3" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1568, 784)
+
+[node name="LootCrate4" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1736, 880)
+
+[node name="LootCrate5" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1680, 784)
+
+[node name="LootCrate6" parent="Crates" instance=ExtResource("3_2ibx0")]
+position = Vector2(1624, 704)
+
+[node name="Bombs" type="Node2D" parent="."]
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Diamonds" type="Node2D" parent="."]
+
+[node name="Diamond" parent="Diamonds" instance=ExtResource("3_xjngc")]
+position = Vector2(728, 736)
+
+[node name="Diamond2" parent="Diamonds" instance=ExtResource("3_xjngc")]
+position = Vector2(864, 736)
+
+[node name="Diamond3" parent="Diamonds" instance=ExtResource("3_xjngc")]
+position = Vector2(1008, 608)
+
+[node name="Diamond4" parent="Diamonds" instance=ExtResource("3_xjngc")]
+position = Vector2(1136, 608)
+
+[node name="Diamond5" parent="Diamonds" instance=ExtResource("3_xjngc")]
+position = Vector2(856, 608)
+
+[node name="PopLabels" type="Node2D" parent="."]
+z_index = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 856)
+limit_left = 0
+limit_top = -128
+limit_right = 2048
+limit_bottom = 1024
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="PlayerCharacter2D" parent="." instance=ExtResource("3_va2pq")]
+position = Vector2(512, 856)
+
+[node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="PlayerCharacter2D"]
+remote_path = NodePath("../../Camera2D")
+
+[connection signal="ready" from="CanvasLayer/ColorRect" to="CanvasLayer/ColorRect" method="show"]
+[connection signal="died" from="PlayerCharacter2D" to="." method="_on_player_character_2d_died"]
