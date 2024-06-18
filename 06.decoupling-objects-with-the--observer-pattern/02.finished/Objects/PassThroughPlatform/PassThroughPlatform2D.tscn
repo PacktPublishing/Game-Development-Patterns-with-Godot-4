@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Texture2D" path="res://Assets/Kings and Pigs/14-TileSets/Decorations (32x32).png" id="1_l4hw0"]
+
+[node name="PassThroughPlatform2D" type="StaticBody2D"]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2d" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_l4hw0")
+region_enabled = true
+region_rect = Rect2(160, 32, 32, 16)
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-64, -32, -64, 0, 64, 0, 64, -32)
+one_way_collision = true

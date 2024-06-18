@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://e56m6toaqlmg"]
+
+[ext_resource type="Script" path="res://Recipes/Hazard2D/HurtArea2D.gd" id="1_umlkh"]
+
+[node name="HurtArea2D" type="Area2D"]
+collision_layer = 4
+collision_mask = 0
+script = ExtResource("1_umlkh")
