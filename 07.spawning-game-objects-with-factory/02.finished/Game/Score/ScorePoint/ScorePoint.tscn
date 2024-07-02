@@ -1,0 +1,12 @@
+[gd_scene load_steps=4 format=3 uid="uid://0d0g5a6x42tg"]
+
+[ext_resource type="Script" path="res://Game/Score/ScorePoint/ScorePoint.gd" id="1_afiub"]
+[ext_resource type="PackedScene" uid="uid://c5vhmxgxun2py" path="res://Objects/GameObjectFactory/GameObjectFactory.tscn" id="2_jf741"]
+[ext_resource type="PackedScene" uid="uid://2ifavtxuttds" path="res://Interface/PopLabel/PopLabel.tscn" id="3_8bhek"]
+
+[node name="ScorePoint" type="Node2D"]
+script = ExtResource("1_afiub")
+
+[node name="GameObjectFactory" parent="." instance=ExtResource("2_jf741")]
+product_packed_scene = ExtResource("3_8bhek")
+target_container_name = &"PopLabels"

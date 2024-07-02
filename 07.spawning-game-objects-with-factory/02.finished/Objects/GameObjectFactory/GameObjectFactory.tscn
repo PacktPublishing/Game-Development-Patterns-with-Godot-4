@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c5vhmxgxun2py"]
+
+[ext_resource type="Script" path="res://Objects/GameObjectFactory/GameObjectFactory.gd" id="1_r1cyl"]
+
+[node name="GameObjectFactory" type="Marker2D"]
+script = ExtResource("1_r1cyl")
