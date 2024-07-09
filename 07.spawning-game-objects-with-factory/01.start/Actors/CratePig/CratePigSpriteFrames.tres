@@ -1,0 +1,63 @@
+[gd_resource type="SpriteFrames" load_steps=13 format=3 uid="uid://jg734lam04y5"]
+
+[ext_resource type="Texture2D" uid="uid://dqpcayp46qg6s" path="res://Assets/Kings and Pigs/06-Pig Hide in the Box/Fall (26x20).png" id="1_d25qq"]
+[ext_resource type="Texture2D" uid="uid://n7la0lkikrtm" path="res://Assets/Kings and Pigs/06-Pig Hide in the Box/Ground (26x20).png" id="2_sbwlk"]
+[ext_resource type="Texture2D" uid="uid://bdnwd5jwty4oa" path="res://Assets/Kings and Pigs/06-Pig Hide in the Box/Jump (26x20).png" id="3_411et"]
+[ext_resource type="Texture2D" uid="uid://dkwjc3poukef8" path="res://Assets/Kings and Pigs/06-Pig Hide in the Box/Looking Out (26x20).png" id="4_wkxeg"]
+[ext_resource type="Texture2D" uid="uid://ynepkmpftudg" path="res://Assets/Kings and Pigs/06-Pig Hide in the Box/Jump Anticipation (26x20).png" id="5_q8v2b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s22lh"]
+atlas = ExtResource("3_411et")
+region = Rect2(0, 0, 26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxkrp"]
+atlas = ExtResource("3_411et")
+region = Rect2(26, 0, 26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_714ij"]
+atlas = ExtResource("4_wkxeg")
+region = Rect2(0, 0, 26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m5g6"]
+atlas = ExtResource("4_wkxeg")
+region = Rect2(26, 0, 26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nspw"]
+atlas = ExtResource("4_wkxeg")
+region = Rect2(52, 0, 26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wia6m"]
+atlas = ExtResource("5_q8v2b")
+region = Rect2(0, 0, 26, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tyasa"]
+atlas = ExtResource("5_q8v2b")
+region = Rect2(26, 0, 26, 20)
+
+[resource]
+animations = [{
+"frames": [ExtResource("1_d25qq")],
+"loop": false,
+"name": &"fall",
+"speed": 10.0
+}, {
+"frames": [ExtResource("2_sbwlk")],
+"loop": false,
+"name": &"ground",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_s22lh"), SubResource("AtlasTexture_dxkrp")],
+"loop": false,
+"name": &"jump",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_714ij"), SubResource("AtlasTexture_3m5g6"), SubResource("AtlasTexture_6nspw")],
+"loop": false,
+"name": &"looking",
+"speed": 10.0
+}, {
+"frames": [SubResource("AtlasTexture_wia6m"), SubResource("AtlasTexture_tyasa")],
+"loop": false,
+"name": &"pre-jump",
+"speed": 10.0
+}]

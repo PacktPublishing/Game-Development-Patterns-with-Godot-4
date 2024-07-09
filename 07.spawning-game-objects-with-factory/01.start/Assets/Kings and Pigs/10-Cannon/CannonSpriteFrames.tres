@@ -1,0 +1,48 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://bk6axm18oghxc"]
+
+[ext_resource type="Texture2D" uid="uid://vri64unfx500" path="res://Assets/Kings and Pigs/10-Cannon/Idle.png" id="1_n524r"]
+[ext_resource type="Texture2D" uid="uid://cv3ppa6h3k5h7" path="res://Assets/Kings and Pigs/10-Cannon/Shoot (44x28).png" id="2_w6lx5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_flww7"]
+atlas = ExtResource("2_w6lx5")
+region = Rect2(0, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfny7"]
+atlas = ExtResource("2_w6lx5")
+region = Rect2(44, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p2egp"]
+atlas = ExtResource("2_w6lx5")
+region = Rect2(88, 0, 44, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fny7h"]
+atlas = ExtResource("2_w6lx5")
+region = Rect2(132, 0, 44, 28)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_n524r")
+}],
+"loop": false,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_flww7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfny7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p2egp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fny7h")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 10.0
+}]

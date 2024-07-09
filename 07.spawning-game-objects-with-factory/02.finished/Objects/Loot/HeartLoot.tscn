@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2s0fofumcqie"]
+[gd_scene load_steps=3 format=3 uid="uid://b887ywntf46tl"]
 
 [ext_resource type="PackedScene" uid="uid://ddd24uvwg80xr" path="res://Objects/Loot/Loot.tscn" id="1_mvo8l"]
-[ext_resource type="PackedScene" uid="uid://cheqjnum8co6t" path="res://Assets/Kings and Pigs/12-Live and Coins/Heart.tscn" id="2_1k7ja"]
+[ext_resource type="PackedScene" uid="uid://cheqjnum8co6t" path="res://Objects/Heart/Heart.tscn" id="2_edymo"]
 
 [node name="HeartLoot" instance=ExtResource("1_mvo8l")]
 
-[node name="GameObjectFactory" parent="." index="0"]
-product_packed_scene = ExtResource("2_1k7ja")
+[node name="Node2DFactory" parent="." index="0"]
+product_packed_scene = ExtResource("2_edymo")
 target_container_name = &"Hearts"

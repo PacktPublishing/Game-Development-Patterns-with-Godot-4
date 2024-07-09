@@ -1,10 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://c2ate6s7c7xm"]
+[gd_scene load_steps=3 format=3 uid="uid://cu0rvv7pq3r72"]
 
 [ext_resource type="PackedScene" uid="uid://ddd24uvwg80xr" path="res://Objects/Loot/Loot.tscn" id="1_dx20e"]
 [ext_resource type="PackedScene" uid="uid://c80fci1r5e5lj" path="res://Objects/Diamond/Diamond.tscn" id="2_gax0d"]
 
 [node name="DiamondLoot" instance=ExtResource("1_dx20e")]
 
-[node name="GameObjectFactory" parent="." index="0"]
+[node name="Node2DFactory" parent="." index="0"]
 product_packed_scene = ExtResource("2_gax0d")
 target_container_name = &"Diamonds"

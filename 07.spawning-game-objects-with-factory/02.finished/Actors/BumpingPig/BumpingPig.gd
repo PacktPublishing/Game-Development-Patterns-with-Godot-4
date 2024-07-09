@@ -8,6 +8,7 @@ extends Node2D
 @onready var sprites = $BumpingEnemy2D/Sprites
 @onready var animated_sprites = $BumpingEnemy2D/Sprites/AnimatedSprite2D
 @onready var score = $BumpingEnemy2D/ScorePoint
+@onready var loots = $BumpingEnemy2D/Loots
 
 @onready var health = max_health
 
@@ -40,6 +41,8 @@ func _physics_process(delta):
 
 
 func die():
+	for loot in loots.get_children():
+		loot.drop()
 	animation_player.play("die")
 	state = STATES.DEAD
 

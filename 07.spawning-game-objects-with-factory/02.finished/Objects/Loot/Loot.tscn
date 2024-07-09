@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://ddd24uvwg80xr"]
 
 [ext_resource type="Script" path="res://Objects/Loot/Loot.gd" id="1_v8gws"]
-[ext_resource type="PackedScene" uid="uid://c5vhmxgxun2py" path="res://Objects/GameObjectFactory/GameObjectFactory.tscn" id="2_hods0"]
+[ext_resource type="PackedScene" uid="uid://c5vhmxgxun2py" path="res://Objects/Node2DFactory/Node2DFactory.tscn" id="2_hods0"]
 
 [node name="Loot" type="Marker2D"]
 script = ExtResource("1_v8gws")
 
-[node name="GameObjectFactory" parent="." instance=ExtResource("2_hods0")]
+[node name="Node2DFactory" parent="." instance=ExtResource("2_hods0")]

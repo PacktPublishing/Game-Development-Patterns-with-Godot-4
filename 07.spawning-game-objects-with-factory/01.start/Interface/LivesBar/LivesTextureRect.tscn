@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://pfe2r4asnxy5"]
+
+[ext_resource type="Texture2D" uid="uid://dyk5ieebipxe7" path="res://Assets/Kings and Pigs/12-Live and Coins/Live Bar.png" id="1_les4i"]
+[ext_resource type="Script" path="res://Interface/LivesBar/LivesTextureRect.gd" id="2_f0dv8"]
+[ext_resource type="PackedScene" uid="uid://bxdsleuers6vv" path="res://Interface/LivesBar/HeartTextureRect.tscn" id="3_yyv3j"]
+[ext_resource type="Texture2D" uid="uid://b1d047fvt3r3f" path="res://Assets/Kings and Pigs/12-Live and Coins/Small Heart Idle (18x14).png" id="4_s5ekw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vmrk"]
+resource_local_to_scene = true
+atlas = ExtResource("4_s5ekw")
+region = Rect2(7, 4, 8, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxyft"]
+resource_local_to_scene = true
+atlas = ExtResource("4_s5ekw")
+region = Rect2(7, 4, 8, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhgpd"]
+resource_local_to_scene = true
+atlas = ExtResource("4_s5ekw")
+region = Rect2(7, 4, 8, 7)
+
+[node name="LivesTextureRect" type="TextureRect"]
+offset_right = 264.0
+offset_bottom = 160.0
+texture = ExtResource("1_les4i")
+stretch_mode = 5
+script = ExtResource("2_f0dv8")
+
+[node name="LivesBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 72.0
+offset_top = 68.0
+offset_right = 192.0
+offset_bottom = 96.0
+theme_override_constants/separation = 12
+
+[node name="HeartTextureRect" parent="LivesBoxContainer" instance=ExtResource("3_yyv3j")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_0vmrk")
+expand_mode = 3
+
+[node name="HeartTextureRect2" parent="LivesBoxContainer" instance=ExtResource("3_yyv3j")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_hxyft")
+expand_mode = 3
+
+[node name="HeartTextureRect3" parent="LivesBoxContainer" instance=ExtResource("3_yyv3j")]
+layout_mode = 2
+texture = SubResource("AtlasTexture_lhgpd")
+expand_mode = 3

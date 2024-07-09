@@ -1,9 +1,8 @@
 extends Node2D
 
 @export var amount = 100
-@export var pop_label_scene = preload("res://Interface/PopLabel/PopLabel.tscn")
 
-@onready var factory = $GameObjectFactory
+@onready var factory = $Node2DFactory
 
 
 func increase_score(_score = amount, _pop_score = true):

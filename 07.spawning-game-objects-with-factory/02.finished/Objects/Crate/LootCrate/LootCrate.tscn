@@ -2,8 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://trvjobk3jg3t" path="res://Objects/Crate/Crate.tscn" id="1_4hnpy"]
 [ext_resource type="Script" path="res://Objects/Crate/LootCrate/LootCrate.gd" id="2_c10v6"]
-[ext_resource type="PackedScene" uid="uid://c2ate6s7c7xm" path="res://Objects/Loot/DiamondLoot.tscn" id="3_pvru1"]
-[ext_resource type="PackedScene" uid="uid://d2s0fofumcqie" path="res://Objects/Loot/HeartLoot.tscn" id="4_5bib8"]
+[ext_resource type="PackedScene" uid="uid://cu0rvv7pq3r72" path="res://Objects/Loot/DiamondLoot.tscn" id="3_pvru1"]
+[ext_resource type="PackedScene" uid="uid://b887ywntf46tl" path="res://Objects/Loot/HeartLoot.tscn" id="4_5bib8"]
 
 [node name="Crate" instance=ExtResource("1_4hnpy")]
 script = ExtResource("2_c10v6")

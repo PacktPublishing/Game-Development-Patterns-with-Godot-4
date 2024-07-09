@@ -1,11 +1,7 @@
-extends "res://Objects/Crate/Crate.gd"
+extends Crate
 
-
-func drop() -> void:
-	for loot in $Loots.get_children():
-		loot.drop()
-	
 
 func shatter():
-	drop()
+	for loot in $Loots.get_children():
+		loot.drop()
 	super()

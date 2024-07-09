@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene load_steps=26 format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" path="res://Actors/BumpingPig/BumpingPig.gd" id="1_clwd4"]
 [ext_resource type="PackedScene" path="res://Recipes/BumpingEnemy2D/BumpingEnemy2D.tscn" id="1_ymmaj"]
@@ -8,6 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://Recipes/Hazard2D/HurtArea2D.tscn" id="5_fo8ao"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="6_o0xur"]
 [ext_resource type="PackedScene" uid="uid://0d0g5a6x42tg" path="res://Game/Score/ScorePoint/ScorePoint.tscn" id="8_byunn"]
+[ext_resource type="PackedScene" uid="uid://b887ywntf46tl" path="res://Objects/Loot/HeartLoot.tscn" id="9_6t0gy"]
+[ext_resource type="PackedScene" uid="uid://cu0rvv7pq3r72" path="res://Objects/Loot/DiamondLoot.tscn" id="10_r3f0w"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bmfug"]
 size = Vector2(64, 64)
@@ -487,6 +489,14 @@ debug_color = Color(0.588235, 0.54902, 0, 0.419608)
 
 [node name="ScorePoint" parent="BumpingEnemy2D" instance=ExtResource("8_byunn")]
 position = Vector2(0, -32)
+
+[node name="Loots" type="Node2D" parent="BumpingEnemy2D"]
+position = Vector2(0, -32)
+
+[node name="HeartLoot" parent="BumpingEnemy2D/Loots" instance=ExtResource("9_6t0gy")]
+
+[node name="DiamondLoot" parent="BumpingEnemy2D/Loots" instance=ExtResource("10_r3f0w")]
+drop_rate = 0.5
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
