@@ -23,7 +23,6 @@ func _ready() -> void:
 
 
 func set_state(new_state: BumpingPigState) -> void:
-	print(new_state.name)
 	if state:
 		state.exit()
 		new_state.previous_state = state
