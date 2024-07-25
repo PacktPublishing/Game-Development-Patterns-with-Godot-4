@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=3 uid="uid://gcevl1ga7u1w"]
+
+[ext_resource type="Script" path="res://Levels/Level.gd" id="1_14qqf"]
+[ext_resource type="PackedScene" uid="uid://3am3io3b8img" path="res://Areas/InsideCastleTileMap.tscn" id="2_q7pcy"]
+[ext_resource type="PackedScene" uid="uid://b6csjxqmlfpn8" path="res://Actors/KingPig/KingPigPlayer2D.tscn" id="3_va2pq"]
+[ext_resource type="PackedScene" uid="uid://caheecjbjsnwd" path="res://Objects/Door/Door.tscn" id="3_vgoat"]
+
+[sub_resource type="Animation" id="Animation_d83j8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_t0l71"]
+resource_name = "fade_in"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yrlw1"]
+resource_name = "fade_out"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mwo6k"]
+_data = {
+"RESET": SubResource("Animation_d83j8"),
+"fade_in": SubResource("Animation_t0l71"),
+"fade_out": SubResource("Animation_yrlw1")
+}
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_14qqf")
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/ColorRect"]
+libraries = {
+"": SubResource("AnimationLibrary_mwo6k")
+}
+
+[node name="TileMap" parent="." instance=ExtResource("2_q7pcy")]
+metadata/_edit_lock_ = true
+
+[node name="Platforms" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Doors" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Door" parent="Doors" instance=ExtResource("3_vgoat")]
+position = Vector2(432, 892)
+
+[node name="Bombs" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Diamonds" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Hearts" type="Node2D" parent="."]
+
+[node name="Crates" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="Enemies" type="Node2D" parent="."]
+metadata/_edit_lock_ = true
+
+[node name="PopLabels" type="Node2D" parent="."]
+z_index = 1
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(512, 856)
+limit_left = 0
+limit_top = -128
+limit_right = 2048
+limit_bottom = 1024
+editor_draw_limits = true
+editor_draw_drag_margin = true
+
+[node name="PlayerCharacter2D" parent="." instance=ExtResource("3_va2pq")]
+position = Vector2(512, 856)
+
+[node name="CameraRemoteTransform2D" type="RemoteTransform2D" parent="PlayerCharacter2D"]
+remote_path = NodePath("../../Camera2D")
+
+[connection signal="opened" from="Doors/Door" to="." method="_on_door_opened"]
+[connection signal="died" from="PlayerCharacter2D" to="." method="_on_player_character_2d_died"]

@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3 uid="uid://bxdsleuers6vv"]
+
+[ext_resource type="Texture2D" uid="uid://b1d047fvt3r3f" path="res://Assets/Kings and Pigs/12-Live and Coins/Small Heart Idle (18x14).png" id="1_d55bm"]
+[ext_resource type="Script" path="res://Interface/LivesBar/HeartTextureRect.gd" id="2_48hcs"]
+[ext_resource type="Texture2D" uid="uid://b1qjt46s53orw" path="res://Assets/Kings and Pigs/12-Live and Coins/Small Heart Hit (18x14).png" id="2_b84du"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bswwv"]
+resource_local_to_scene = true
+atlas = ExtResource("1_d55bm")
+region = Rect2(7, 4, 8, 7)
+
+[sub_resource type="Animation" id="Animation_tox8v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:atlas")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_d55bm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(7, 4, 8, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_k36w4"]
+resource_name = "hit"
+length = 0.20001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:atlas")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("2_b84du")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0, 0),
+"update": 0,
+"values": [Rect2(8, 3, 6, 8), Rect2(26, 1, 6, 11)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_4hi4t"]
+resource_name = "recover"
+length = 0.40001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture:atlas")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_d55bm")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:texture:region")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(0, 0, 0, 0, 0),
+"update": 0,
+"values": [Rect2(7, 4, 8, 7), Rect2(97, 4, 8, 7), Rect2(115, 4, 8, 7), Rect2(133, 4, 8, 7), Rect2(7, 4, 8, 7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eochj"]
+_data = {
+"RESET": SubResource("Animation_tox8v"),
+"hit": SubResource("Animation_k36w4"),
+"recover": SubResource("Animation_4hi4t")
+}
+
+[node name="HeartTextureRect" type="TextureRect"]
+custom_minimum_size = Vector2(32, 28)
+offset_right = 48.0
+offset_bottom = 40.0
+size_flags_vertical = 3
+texture = SubResource("AtlasTexture_bswwv")
+expand_mode = 4
+stretch_mode = 5
+script = ExtResource("2_48hcs")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_eochj")
+}

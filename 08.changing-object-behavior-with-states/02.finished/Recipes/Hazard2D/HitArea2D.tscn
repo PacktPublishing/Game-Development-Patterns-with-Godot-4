@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqypq0f7mfab6"]
+
+[ext_resource type="Script" path="res://Recipes/Hazard2D/HitArea2D.gd" id="1_eh3ja"]
+
+[node name="HitArea2D" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("1_eh3ja")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
