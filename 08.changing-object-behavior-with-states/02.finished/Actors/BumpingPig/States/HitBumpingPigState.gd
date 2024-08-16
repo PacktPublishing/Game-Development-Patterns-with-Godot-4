@@ -7,12 +7,11 @@ func enter() -> void:
 	
 	context.score.increase_score()
 	await context.animation_tree.animation_finished
-	if context.health < 1:
+	if context.health > 0:
+		context.state = previous_state
+	else:
 		context.score.increase_score()
 		context.state = context.find_child("DeadState")
-		return
-	else:
-		context.state = previous_state
 
 
 func exit() -> void:
