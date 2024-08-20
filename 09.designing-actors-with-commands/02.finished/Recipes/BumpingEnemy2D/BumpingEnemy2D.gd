@@ -7,7 +7,3 @@ func _physics_process(delta):
 	super(delta)
 	if is_on_wall():
 		bumped.emit()
-
-
-func turn():
-	direction *= -1

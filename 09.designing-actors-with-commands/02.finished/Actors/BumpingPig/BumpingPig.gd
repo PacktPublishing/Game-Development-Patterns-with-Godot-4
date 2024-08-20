@@ -40,6 +40,14 @@ func _on_hurt_area_2d_hurt(damage: int) -> void:
 	state.get_hurt()
 
 
+func move(direction: int) -> void:
+	state.move(direction)
+
+
+func stop() -> void:
+	state.stop()
+
+
 func throw(throw_force: Vector2) -> void:
 	state.throw(throw_force)
 
@@ -60,5 +68,5 @@ func attack() -> void:
 	state.attack()
 
 
-func turn() -> void:
-	body.turn()
+func turn(direction: int) -> void:
+	state.turn(direction)

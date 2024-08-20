@@ -15,3 +15,10 @@ func exit() -> void:
 
 func get_hurt() -> void:
 	context.state = context.find_child("HitState")
+
+
+func turn(direction: int) -> void:
+	if direction > 0:
+		context.sprites.scale.x = -1
+	elif direction < 0:
+		context.sprites.scale.x = 1

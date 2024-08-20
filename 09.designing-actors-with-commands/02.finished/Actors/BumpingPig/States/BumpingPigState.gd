@@ -17,6 +17,14 @@ func get_hurt() -> void:
 	pass
 
 
+func move(direction: int) -> void:
+	pass
+
+
+func stop() -> void:
+	pass
+
+
 func jump() -> void:
 	pass
 
@@ -30,6 +38,10 @@ func attack() -> void:
 
 
 func throw(throw_force: Vector2) -> void:
+	pass
+
+
+func turn(direction: int) -> void:
 	pass
 
 

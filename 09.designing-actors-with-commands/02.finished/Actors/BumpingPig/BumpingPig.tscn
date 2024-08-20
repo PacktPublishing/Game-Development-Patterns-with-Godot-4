@@ -1013,6 +1013,18 @@ offset_bottom = -108.0
 text = "Attack"
 command_path = NodePath("../../../Commands/AttackCommand")
 
+[node name="TurnLeftButton2" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
+offset_left = -256.0
+offset_right = -94.0
+text = "Turn Left"
+command_path = NodePath("../../../Commands/TurnLeftCommand")
+
+[node name="TurnRightButton3" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
+offset_left = 96.0
+offset_right = 258.0
+text = "Turn Right"
+command_path = NodePath("../../../Commands/TurnRightCommand")
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_srs4m")
@@ -1091,14 +1103,19 @@ script = ExtResource("20_vgv7b")
 [node name="ThrowCommand" type="Node" parent="Commands"]
 script = ExtResource("25_ris1x")
 
-[node name="TurnCommand" type="Node" parent="Commands"]
+[node name="TurnLeftCommand" type="Node" parent="Commands"]
 script = ExtResource("21_jno1p")
+
+[node name="TurnRightCommand" type="Node" parent="Commands"]
+script = ExtResource("21_jno1p")
+direction = 1
 
 [node name="PickBombCommand" type="Node" parent="Commands"]
 script = ExtResource("31_2wtvc")
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("18_px1ij")
+commands_path = NodePath("../Commands")
 
 [connection signal="bumped" from="BumpingEnemy2D" to="Brain" method="_on_bumping_enemy_2d_bumped"]
 [connection signal="hurt" from="BumpingEnemy2D/Sprites/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]

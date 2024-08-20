@@ -26,3 +26,20 @@ func get_hurt() -> void:
 
 func cancel_jump() -> void:
 	context.body.velocity.y = 0
+
+
+func move(direction: int) -> void:
+	if not direction == 0:
+		turn(direction)
+		context.body.direction = direction
+
+
+func stop() -> void:
+	context.body.direction = 0
+
+
+func turn(direction: int) -> void:
+	if direction > 0:
+		context.sprites.scale.x = -1
+	elif direction < 0:
+		context.sprites.scale.x = 1
