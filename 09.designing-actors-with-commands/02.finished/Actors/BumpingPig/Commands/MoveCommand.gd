@@ -1,4 +1,4 @@
-extends BumpingPigCommand
+extends Command
 
 
 @export var direction := -1

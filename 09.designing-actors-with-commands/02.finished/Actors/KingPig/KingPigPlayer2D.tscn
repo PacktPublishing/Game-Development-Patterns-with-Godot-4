@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://b6csjxqmlfpn8"]
+[gd_scene load_steps=22 format=3 uid="uid://b6csjxqmlfpn8"]
 
 [ext_resource type="PackedScene" uid="uid://datjjcj0av25b" path="res://Recipes/WallJumpingCharacter2D/WallJumpingCharacter2D.tscn" id="1_8gxmr"]
 [ext_resource type="Script" path="res://Actors/KingPig/KingPigPlayer2D.gd" id="2_5hkq3"]
@@ -7,6 +7,10 @@
 [ext_resource type="SpriteFrames" uid="uid://b3kwlknvpnuy5" path="res://Assets/Kings and Pigs/13-Dialogue Boxes/InterrogationSpriteFrames.tres" id="7_jaj1j"]
 [ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://Recipes/Hazard2D/HurtArea2D.tscn" id="7_m2gy7"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="8_6asr8"]
+[ext_resource type="PackedScene" uid="uid://bub1q0u8yil2l" path="res://Actors/Debug/CommandButton.tscn" id="8_aeh8f"]
+[ext_resource type="Script" path="res://Actors/KingPig/Commands/JumpCommand.gd" id="9_nswdi"]
+[ext_resource type="Script" path="res://Actors/KingPig/Commands/AttackCommand.gd" id="10_c38an"]
+[ext_resource type="Script" path="res://Actors/KingPig/Commands/MoveCommand.gd" id="11_jnu27"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7pdo"]
 size = Vector2(64, 80)
@@ -388,6 +392,55 @@ script = SubResource("GDScript_plqyf")
 libraries = {
 "": SubResource("AnimationLibrary_qu8rq")
 }
+
+[node name="MovementButtons" type="CanvasLayer" parent="." index="9"]
+
+[node name="JumpCommandButton" parent="MovementButtons" index="0" instance=ExtResource("8_aeh8f")]
+offset_left = 1600.0
+offset_top = 896.0
+offset_right = 1792.0
+offset_bottom = 1048.0
+text = "Jump"
+command_path = NodePath("../../Commands/JumpCommand")
+
+[node name="AttackCommandButton" parent="MovementButtons" index="1" instance=ExtResource("8_aeh8f")]
+offset_left = 1600.0
+offset_top = 688.0
+offset_right = 1792.0
+offset_bottom = 840.0
+text = "Attack"
+command_path = NodePath("../../Commands/AttackCommand")
+
+[node name="MoveLeftCommandButton2" parent="MovementButtons" index="2" instance=ExtResource("8_aeh8f")]
+offset_left = 56.0
+offset_top = 872.0
+offset_right = 248.0
+offset_bottom = 1024.0
+text = "Left"
+command_path = NodePath("../../Commands/MoveLeftCommand")
+
+[node name="MoveRightCommandButton3" parent="MovementButtons" index="3" instance=ExtResource("8_aeh8f")]
+offset_left = 320.0
+offset_top = 872.0
+offset_right = 512.0
+offset_bottom = 1024.0
+text = "Right"
+command_path = NodePath("../../Commands/MoveRightCommand")
+
+[node name="Commands" type="Node" parent="." index="10"]
+
+[node name="JumpCommand" type="Node" parent="Commands" index="0"]
+script = ExtResource("9_nswdi")
+
+[node name="AttackCommand" type="Node" parent="Commands" index="1"]
+script = ExtResource("10_c38an")
+
+[node name="MoveLeftCommand" type="Node" parent="Commands" index="2"]
+script = ExtResource("11_jnu27")
+
+[node name="MoveRightCommand" type="Node" parent="Commands" index="3"]
+script = ExtResource("11_jnu27")
+direction = 1
 
 [connection signal="hurt" from="HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
 [connection signal="animation_finished" from="Sprites/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

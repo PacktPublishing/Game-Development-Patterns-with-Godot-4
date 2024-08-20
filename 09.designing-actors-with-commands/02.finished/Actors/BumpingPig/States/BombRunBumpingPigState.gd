@@ -16,11 +16,11 @@ func get_hurt() -> void:
 	context.state = context.find_child("HitState")
 
 
-func throw(impulse: Vector2) -> void:
+func throw(throw_force: Vector2) -> void:
 	context.state = context.find_child("BombThrowState")
 	await context.animation_tree.animation_finished
 	var bomb: Bomb = context.bomb_factory.create()
-	bomb.apply_central_impulse(impulse)
+	bomb.apply_central_impulse(throw_force)
 
 
 func _on_body_direction_changed(new_direction: int) -> void:

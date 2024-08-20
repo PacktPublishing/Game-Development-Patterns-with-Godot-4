@@ -1,6 +1,6 @@
-extends BumpingPigCommand
+extends Command
 
-var direction := 1
 
 func execute() -> void:
 	receiver.body.turn()
+	

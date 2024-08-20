@@ -22,6 +22,10 @@ signal lives_decreased(amount)
 
 var fall_speed = 0.0
 
+func _ready() -> void:
+	for command in $Commands.get_children():
+		command.receiver = self
+
 
 func _physics_process(delta):
 	super(delta)
@@ -55,8 +59,12 @@ func _unhandled_input(event):
 	if event.is_action("attack"):
 		if event.is_pressed():
 			if is_on_floor():
-				animation_player.play("attack")
+				attack()
 	super(event)
+
+
+func attack() -> void:
+	animation_player.play("attack")
 
 
 func fade_in():

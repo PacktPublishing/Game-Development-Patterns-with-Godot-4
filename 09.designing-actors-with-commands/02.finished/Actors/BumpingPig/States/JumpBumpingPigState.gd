@@ -22,3 +22,7 @@ func exit() -> void:
 
 func get_hurt() -> void:
 	context.state = context.find_child("HitState")
+
+
+func cancel_jump() -> void:
+	context.body.velocity.y = 0

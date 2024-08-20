@@ -17,9 +17,21 @@ func get_hurt() -> void:
 	pass
 
 
-func throw(impulse: Vector2) -> void:
+func jump() -> void:
 	pass
 
 
-func jump() -> void:
+func cancel_jump() -> void:
+	pass
+
+
+func attack() -> void:
+	pass
+
+
+func throw(throw_force: Vector2) -> void:
+	pass
+
+
+func pick_bomb(bomb: Bomb) -> void:
 	pass

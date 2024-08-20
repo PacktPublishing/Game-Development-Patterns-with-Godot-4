@@ -7,10 +7,18 @@ func enter() -> void:
 	context.body.direction = 0
 	context.animation_tree.enable_condition("throw")
 	await context.animation_tree.animation_finished
-	context.state = context.find_child("IdleState")
+	if previous_direction == 0:
+		context.state = context.find_child("IdleState")
+	else:
+		context.state = context.find_child("RunState")
+
+
+func get_hurt() -> void:
+	context.state = context.find_child("HitState")
 
 
 func exit() -> void:
-	context.body.direction = previous_direction
 	context.animation_tree.disable_condition("throw")
 	context.animation_tree.condition_path = "parameters/conditions/%s"
+	context.body.direction = previous_direction
+	

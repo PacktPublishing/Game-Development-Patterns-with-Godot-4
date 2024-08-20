@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bub1q0u8yil2l"]
+
+[ext_resource type="Script" path="res://Actors/Debug/CommandButton.gd" id="1_sidha"]
+
+[node name="CommandButton" type="Button"]
+offset_left = -80.0
+offset_top = 16.0
+offset_right = 82.0
+offset_bottom = 76.0
+focus_mode = 0
+text = "Command"
+script = ExtResource("1_sidha")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]

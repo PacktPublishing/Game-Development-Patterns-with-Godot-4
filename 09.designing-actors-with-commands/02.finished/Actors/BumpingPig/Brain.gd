@@ -1,44 +1,26 @@
 extends Node
 
 
-var commands: Node
-var command: BumpingPigCommand
-
-func _on_jump_button_pressed() -> void:
-	command = commands.get_node("JumpCommand")
-	command.execute()
+var actor
 
 
-func _on_move_left_button_pressed() -> void:
-	command = commands.get_node("MoveLeftCommand")
-	command.execute()
+func _on_vision_area_2d_area_entered(area: Area2D) -> void:
+	actor.attack()
 
 
-func _on_move_right_button_pressed() -> void:
-	command = commands.get_node("MoveRightCommand")
-	command.execute()
+func _on_bomb_vision_area_2d_area_entered(area: Area2D) -> void:
+	actor.pick_bomb(area.owner)
+	actor.find_child("ThrowVisionArea2D").area_entered.connect(_on_throw_vision_area_2d_area_entered)
 
 
-func _on_stop_button_pressed() -> void:
-	command = commands.get_node("StopCommand")
-	command.execute()
-
-
-func _on_attack_button_pressed() -> void:
-	command = commands.get_node("AttackCommand")
-	command.execute()
+func _on_throw_vision_area_2d_area_entered(area: Area2D) -> void:
+	actor.find_child("ThrowVisionArea2D").area_entered.disconnect(_on_throw_vision_area_2d_area_entered)
+	var direction: float = sign(actor.global_position.direction_to(area.global_position).x)
+	
+	var impulse := Vector2(600 * direction, -600)
+	
+	actor.throw(impulse)
 
 
 func _on_bumping_enemy_2d_bumped() -> void:
-	command = commands.get_node("TurnCommand")
-	command.execute()
-
-
-func _on_turn_button_pressed() -> void:
-	command = commands.get_node("TurnCommand")
-	command.execute()
-
-
-func _on_throw_bomb_button_pressed() -> void:
-	command = commands.get_node("ThrowCommand")
-	command.execute()
+	actor.turn()

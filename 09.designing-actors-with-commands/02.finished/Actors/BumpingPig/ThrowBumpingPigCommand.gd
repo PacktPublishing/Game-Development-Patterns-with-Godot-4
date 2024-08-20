@@ -1,4 +1,4 @@
-extends BumpingPigCommand
+extends Command
 
 @export var impulse := Vector2(600, -600)
 
