@@ -12,6 +12,13 @@ func exit() -> void:
 	context.animation_tree.disable_condition("idle")
 
 
+func throw(impulse: Vector2) -> void:
+	context.state = context.find_child("BombThrowState")
+	await context.animation_tree.animation_finished
+	var bomb: Bomb = context.bomb_factory.create()
+	bomb.apply_central_impulse(impulse)
+
+
 func get_hurt() -> void:
 	context.state = context.find_child("HitState")
 

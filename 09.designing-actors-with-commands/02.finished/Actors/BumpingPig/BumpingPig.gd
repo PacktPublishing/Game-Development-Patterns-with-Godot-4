@@ -22,7 +22,6 @@ func _ready() -> void:
 		state.context = self
 	for command in $Commands.get_children():
 		command.receiver = self
-	$Brain.commands = $Commands
 	set_state(find_child("IdleState"))
 	body.direction = initial_direction
 
@@ -41,5 +40,8 @@ func _on_hurt_area_2d_hurt(damage: int) -> void:
 
 
 func throw(impulse: Vector2) -> void:
-	var bomb: Bomb = bomb_factory.create()
-	bomb.apply_central_impulse(impulse)
+	state.throw(impulse)
+
+
+func jump() -> void:
+	state.jump()

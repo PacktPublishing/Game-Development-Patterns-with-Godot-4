@@ -12,6 +12,17 @@ func exit() -> void:
 	context.animation_tree.disable_condition("run")
 
 
+func get_hurt() -> void:
+	context.state = context.find_child("HitState")
+
+
+func throw(impulse: Vector2) -> void:
+	context.state = context.find_child("BombThrowState")
+	await context.animation_tree.animation_finished
+	var bomb: Bomb = context.bomb_factory.create()
+	bomb.apply_central_impulse(impulse)
+
+
 func _on_body_direction_changed(new_direction: int) -> void:
 	if new_direction > 0:
 		context.sprites.scale.x = -1

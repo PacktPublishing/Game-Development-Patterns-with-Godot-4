@@ -19,3 +19,7 @@ func get_hurt() -> void:
 
 func throw(impulse: Vector2) -> void:
 	pass
+
+
+func jump() -> void:
+	pass

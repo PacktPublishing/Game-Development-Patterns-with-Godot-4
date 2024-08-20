@@ -22,6 +22,10 @@ func get_hurt() -> void:
 	context.state = context.find_child("HitState")
 
 
+func jump() -> void:
+	context.body.jump()
+
+
 func _on_body_direction_changed(new_direction: int) -> void:
 	if context.body.direction > 0:
 		context.sprites.scale.x = -1

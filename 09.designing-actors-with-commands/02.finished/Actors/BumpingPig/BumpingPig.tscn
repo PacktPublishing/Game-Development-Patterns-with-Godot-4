@@ -1,4 +1,4 @@
-[gd_scene load_steps=56 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene load_steps=57 format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" path="res://Actors/BumpingPig/BumpingPig.gd" id="1_clwd4"]
 [ext_resource type="PackedScene" path="res://Recipes/BumpingEnemy2D/BumpingEnemy2D.tscn" id="1_ymmaj"]
@@ -97,6 +97,54 @@ size = Vector2(160, 83)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g4kjy"]
 size = Vector2(96, 63)
+
+[sub_resource type="GDScript" id="GDScript_l8q74"]
+script/source = "extends Node
+
+@export_node_path(\"Node\") var commands_path
+@onready var commands: Node = get_node(commands_path)
+
+var command: BumpingPigCommand
+
+func _on_jump_button_pressed() -> void:
+	command = commands.get_node(\"JumpCommand\")
+	command.execute()
+
+
+func _on_move_left_button_pressed() -> void:
+	command = commands.get_node(\"MoveLeftCommand\")
+	command.execute()
+
+
+func _on_move_right_button_pressed() -> void:
+	command = commands.get_node(\"MoveRightCommand\")
+	command.execute()
+
+
+func _on_stop_button_pressed() -> void:
+	command = commands.get_node(\"StopCommand\")
+	command.execute()
+
+
+func _on_attack_button_pressed() -> void:
+	command = commands.get_node(\"AttackCommand\")
+	command.execute()
+
+
+func _on_bumping_enemy_2d_bumped() -> void:
+	command = commands.get_node(\"TurnCommand\")
+	command.execute()
+
+
+func _on_turn_button_pressed() -> void:
+	command = commands.get_node(\"TurnCommand\")
+	command.execute()
+
+
+func _on_throw_bomb_button_pressed() -> void:
+	command = commands.get_node(\"ThrowCommand\")
+	command.execute()
+"
 
 [sub_resource type="Animation" id="Animation_5b38s"]
 length = 0.001
@@ -955,7 +1003,11 @@ position = Vector2(0, -32)
 [node name="DiamondLoot" parent="BumpingEnemy2D/Loots" instance=ExtResource("10_r3f0w")]
 drop_rate = 0.5
 
-[node name="JumpButton" type="Button" parent="BumpingEnemy2D"]
+[node name="DebugButtons" type="Node2D" parent="BumpingEnemy2D"]
+script = SubResource("GDScript_l8q74")
+commands_path = NodePath("../../Commands")
+
+[node name="JumpButton" type="Button" parent="BumpingEnemy2D/DebugButtons"]
 offset_left = -80.0
 offset_top = 16.0
 offset_right = 82.0
@@ -963,7 +1015,7 @@ offset_bottom = 76.0
 focus_mode = 0
 text = "Jump"
 
-[node name="MoveLeftButton" type="Button" parent="BumpingEnemy2D"]
+[node name="MoveLeftButton" type="Button" parent="BumpingEnemy2D/DebugButtons"]
 offset_left = -264.0
 offset_top = -72.0
 offset_right = -102.0
@@ -971,7 +1023,7 @@ offset_bottom = -12.0
 focus_mode = 0
 text = "Left"
 
-[node name="MoveRightButton" type="Button" parent="BumpingEnemy2D"]
+[node name="MoveRightButton" type="Button" parent="BumpingEnemy2D/DebugButtons"]
 offset_left = 112.0
 offset_top = -72.0
 offset_right = 274.0
@@ -979,7 +1031,7 @@ offset_bottom = -12.0
 focus_mode = 0
 text = "Right"
 
-[node name="StopButton" type="Button" parent="BumpingEnemy2D"]
+[node name="StopButton" type="Button" parent="BumpingEnemy2D/DebugButtons"]
 offset_left = -80.0
 offset_top = -168.0
 offset_right = 82.0
@@ -987,7 +1039,7 @@ offset_bottom = -108.0
 focus_mode = 0
 text = "Stop"
 
-[node name="AttackButton" type="Button" parent="BumpingEnemy2D"]
+[node name="AttackButton" type="Button" parent="BumpingEnemy2D/DebugButtons"]
 offset_left = -264.0
 offset_top = -168.0
 offset_right = -102.0
@@ -995,7 +1047,7 @@ offset_bottom = -108.0
 focus_mode = 0
 text = "Attack"
 
-[node name="ThrowBombButton" type="Button" parent="BumpingEnemy2D"]
+[node name="ThrowBombButton" type="Button" parent="BumpingEnemy2D/DebugButtons"]
 offset_left = 104.0
 offset_top = -168.0
 offset_right = 266.0
@@ -1090,9 +1142,9 @@ script = ExtResource("18_px1ij")
 [connection signal="bumped" from="BumpingEnemy2D" to="Brain" method="_on_bumping_enemy_2d_bumped"]
 [connection signal="hurt" from="BumpingEnemy2D/Sprites/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
 [connection signal="area_entered" from="BumpingEnemy2D/Sprites/VisionArea2D" to="." method="_on_vision_area_2d_area_entered"]
-[connection signal="pressed" from="BumpingEnemy2D/JumpButton" to="Brain" method="_on_jump_button_pressed"]
-[connection signal="pressed" from="BumpingEnemy2D/MoveLeftButton" to="Brain" method="_on_move_left_button_pressed"]
-[connection signal="pressed" from="BumpingEnemy2D/MoveRightButton" to="Brain" method="_on_move_right_button_pressed"]
-[connection signal="pressed" from="BumpingEnemy2D/StopButton" to="Brain" method="_on_stop_button_pressed"]
-[connection signal="pressed" from="BumpingEnemy2D/AttackButton" to="Brain" method="_on_attack_button_pressed"]
-[connection signal="pressed" from="BumpingEnemy2D/ThrowBombButton" to="Brain" method="_on_throw_bomb_button_pressed"]
+[connection signal="pressed" from="BumpingEnemy2D/DebugButtons/JumpButton" to="BumpingEnemy2D/DebugButtons" method="_on_jump_button_pressed"]
+[connection signal="pressed" from="BumpingEnemy2D/DebugButtons/MoveLeftButton" to="BumpingEnemy2D/DebugButtons" method="_on_move_left_button_pressed"]
+[connection signal="pressed" from="BumpingEnemy2D/DebugButtons/MoveRightButton" to="BumpingEnemy2D/DebugButtons" method="_on_move_right_button_pressed"]
+[connection signal="pressed" from="BumpingEnemy2D/DebugButtons/StopButton" to="BumpingEnemy2D/DebugButtons" method="_on_stop_button_pressed"]
+[connection signal="pressed" from="BumpingEnemy2D/DebugButtons/AttackButton" to="BumpingEnemy2D/DebugButtons" method="_on_attack_button_pressed"]
+[connection signal="pressed" from="BumpingEnemy2D/DebugButtons/ThrowBombButton" to="BumpingEnemy2D/DebugButtons" method="_on_throw_bomb_button_pressed"]
