@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=3 uid="uid://ddka8ik4w0y7"]
+
+[ext_resource type="Script" path="res://Game/Game.gd" id="1_7s7it"]
+[ext_resource type="PackedScene" uid="uid://cxkf516021f86" path="res://Levels/Level1/Level1.tscn" id="2_r3sxr"]
+[ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://Interface/Fonts/Kenney Thick.ttf" id="2_troow"]
+[ext_resource type="PackedScene" uid="uid://pfe2r4asnxy5" path="res://Interface/LivesBar/LivesTextureRect.tscn" id="4_1csg6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bqiny"]
+font = ExtResource("2_troow")
+font_size = 61
+
+[node name="Game" type="Node"]
+script = ExtResource("1_7s7it")
+
+[node name="WorldCanvasLayer" type="CanvasLayer" parent="."]
+follow_viewport_enabled = true
+
+[node name="Level" parent="WorldCanvasLayer" instance=ExtResource("2_r3sxr")]
+
+[node name="InterfaceCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ScoreLabel" type="Label" parent="InterfaceCanvasLayer"]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -584.0
+offset_top = 64.0
+offset_right = -56.0
+offset_bottom = 136.0
+grow_horizontal = 0
+text = "123456789"
+label_settings = SubResource("LabelSettings_bqiny")
+horizontal_alignment = 2
+
+[node name="LivesTextureRect" parent="InterfaceCanvasLayer" instance=ExtResource("4_1csg6")]
+offset_left = 60.0
+offset_top = 64.0
+offset_right = 324.0
+offset_bottom = 224.0
