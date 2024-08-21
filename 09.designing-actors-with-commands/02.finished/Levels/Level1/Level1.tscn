@@ -182,15 +182,12 @@ position = Vector2(4296, 1156)
 
 [node name="BumpingPig" parent="Enemies" index="0" instance=ExtResource("3_vsa4p")]
 position = Vector2(2740, 1256)
-initial_direction = 0
 
 [node name="BumpingPig2" parent="Enemies" index="1" instance=ExtResource("3_vsa4p")]
 position = Vector2(2116, 1136)
-initial_direction = 0
 
 [node name="BumpingPig3" parent="Enemies" index="2" instance=ExtResource("3_vsa4p")]
 position = Vector2(3652, 1256)
-initial_direction = 0
 
 [node name="CratePig" parent="Enemies" index="3" instance=ExtResource("6_y8bfe")]
 position = Vector2(3268, 1280)

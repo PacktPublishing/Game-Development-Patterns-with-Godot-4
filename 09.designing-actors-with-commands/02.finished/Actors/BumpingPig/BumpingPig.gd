@@ -22,9 +22,10 @@ func _ready() -> void:
 		state.context = self
 	for command in $Commands.get_children():
 		command.receiver = self
-	$Brain.actor = self
 	set_state(find_child("IdleState"))
-	body.direction = initial_direction
+	$Brain.actor = self
+	
+	move(initial_direction)
 
 
 func set_state(new_state: BumpingPigState) -> void:
