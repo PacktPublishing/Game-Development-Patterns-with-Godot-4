@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4sh3iawtcu1g"]
+
+[ext_resource type="PackedScene" uid="uid://c5vhmxgxun2py" path="res://Objects/Node2DFactory/Node2DFactory.tscn" id="1_3por3"]
+[ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://Objects/Bomb/Bomb.tscn" id="3_5by27"]
+
+[node name="BombFactory" instance=ExtResource("1_3por3")]
+product_packed_scene = ExtResource("3_5by27")
+target_container_name = &"Bombs"

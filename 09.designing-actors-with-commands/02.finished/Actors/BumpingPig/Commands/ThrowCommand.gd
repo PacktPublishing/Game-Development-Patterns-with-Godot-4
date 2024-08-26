@@ -5,5 +5,4 @@ extends Command
 var throw_force := impulse
 
 func execute() -> void:
-	throw_force.x = -receiver.sprites.scale.x * impulse.x
 	receiver.throw(throw_force)
