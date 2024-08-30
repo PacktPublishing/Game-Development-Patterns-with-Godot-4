@@ -45,5 +45,5 @@ func turn(direction: int) -> void:
 	pass
 
 
-func pick_bomb(bomb: Bomb) -> void:
+func pick(object: Node2D) -> void:
 	pass

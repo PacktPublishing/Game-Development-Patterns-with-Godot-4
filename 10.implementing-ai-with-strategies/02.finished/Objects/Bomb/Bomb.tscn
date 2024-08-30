@@ -1,12 +1,13 @@
-[gd_scene load_steps=25 format=3 uid="uid://btdmowk762lt6"]
+[gd_scene load_steps=26 format=3 uid="uid://btdmowk762lt6"]
 
 [ext_resource type="Script" path="res://Objects/Bomb/Bomb.gd" id="1_h6cbi"]
 [ext_resource type="Texture2D" uid="uid://m582f7k7i3v1" path="res://Assets/Kings and Pigs/09-Bomb/Boooooom (52x56).png" id="1_xvrdk"]
 [ext_resource type="Texture2D" uid="uid://bdk5uvx6opexj" path="res://Assets/Kings and Pigs/09-Bomb/Bomb Off.png" id="2_0kr7n"]
 [ext_resource type="Texture2D" uid="uid://cc0hhce3sr4lt" path="res://Assets/Kings and Pigs/09-Bomb/Bomb On (52x56).png" id="3_xkqxk"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="4_xs86m"]
-[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://Recipes/Hazard2D/VisionArea2D.tscn" id="6_3yyf5"]
+[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://Recipes/VisionArea2D/VisionArea2D.tscn" id="6_3yyf5"]
 [ext_resource type="SpriteFrames" uid="uid://ba1g2hmdraiw4" path="res://Assets/Kings and Pigs/09-Bomb/BombSpriteFrames.tres" id="7_nxg27"]
+[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://Recipes/VisionArea2D/VisibleArea2D.tscn" id="8_72q3f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pgne8"]
 atlas = ExtResource("1_xvrdk")
@@ -360,9 +361,16 @@ disabled = true
 debug_color = Color(0.964706, 0, 0.486275, 0.419608)
 
 [node name="VisionArea2D" parent="." instance=ExtResource("6_3yyf5")]
-collision_layer = 32
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea2D"]
+position = Vector2(0, -24)
+shape = SubResource("CircleShape2D_hi0d8")
+debug_color = Color(0.65098, 0.517647, 0, 0.419608)
+
+[node name="VisibleArea2D" parent="." instance=ExtResource("8_72q3f")]
+interaction_strategy_name = "BombInteractionStrategy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D"]
 position = Vector2(0, -24)
 shape = SubResource("CircleShape2D_hi0d8")
 debug_color = Color(0.65098, 0.517647, 0, 0.419608)

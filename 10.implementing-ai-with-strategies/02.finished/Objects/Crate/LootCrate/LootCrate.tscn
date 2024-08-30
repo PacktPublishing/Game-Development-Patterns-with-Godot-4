@@ -5,14 +5,15 @@
 [ext_resource type="PackedScene" uid="uid://cu0rvv7pq3r72" path="res://Objects/Loot/DiamondLoot.tscn" id="3_pvru1"]
 [ext_resource type="PackedScene" uid="uid://b887ywntf46tl" path="res://Objects/Loot/HeartLoot.tscn" id="4_5bib8"]
 
-[node name="Crate" instance=ExtResource("1_4hnpy")]
+[node name="LootCrate" instance=ExtResource("1_4hnpy")]
 script = ExtResource("2_c10v6")
 
 [node name="Loots" type="Node2D" parent="." index="2"]
 
 [node name="DiamondLoot" parent="Loots" index="0" instance=ExtResource("3_pvru1")]
-position = Vector2(0, -40)
 
 [node name="HeartLoot" parent="Loots" index="1" instance=ExtResource("4_5bib8")]
-position = Vector2(0, -40)
 drop_rate = 0.5
+
+[node name="CollisionShape2D" parent="VisibleArea2D" index="0"]
+disabled = true

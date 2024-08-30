@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ynepkmpftudg" path="res://Assets/Kings and Pigs/06-Pig Hide in the Box/Jump Anticipation (26x20).png" id="5_5nwj6"]
 [ext_resource type="Texture2D" uid="uid://dln58hdvjoj6q" path="res://Assets/Kings and Pigs/08-Box/Idle.png" id="6_dvi33"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="6_ik5hs"]
-[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://Recipes/Hazard2D/VisionArea2D.tscn" id="7_knyen"]
+[ext_resource type="PackedScene" uid="uid://c52kqjagn68xb" path="res://Recipes/VisionArea2D/VisionArea2D.tscn" id="7_knyen"]
 [ext_resource type="Texture2D" uid="uid://co4ia3maub7c4" path="res://Assets/Kings and Pigs/08-Box/Hit.png" id="8_bf7ni"]
 [ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://Recipes/Hazard2D/HurtArea2D.tscn" id="9_na48y"]
 [ext_resource type="Texture2D" uid="uid://doss0kkuln6me" path="res://Assets/Kings and Pigs/08-Box/Box Pieces 2.png" id="10_8nf6e"]

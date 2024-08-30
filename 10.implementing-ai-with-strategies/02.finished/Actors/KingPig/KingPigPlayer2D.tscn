@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://datjjcj0av25b" path="res://Recipes/WallJumpingCharacter2D/WallJumpingCharacter2D.tscn" id="1_8gxmr"]
 [ext_resource type="Script" path="res://Actors/KingPig/KingPigPlayer2D.gd" id="2_5hkq3"]
 [ext_resource type="SpriteFrames" uid="uid://bavfwgk0ajiq" path="res://Actors/KingPig/KingPigSpriteFrames.tres" id="6_iftfv"]
-[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://Recipes/Hazard2D/VisibleArea2D.tscn" id="7_00d15"]
+[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://Recipes/VisionArea2D/VisibleArea2D.tscn" id="7_00d15"]
 [ext_resource type="SpriteFrames" uid="uid://b3kwlknvpnuy5" path="res://Assets/Kings and Pigs/13-Dialogue Boxes/InterrogationSpriteFrames.tres" id="7_jaj1j"]
 [ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://Recipes/Hazard2D/HurtArea2D.tscn" id="7_m2gy7"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="8_6asr8"]
@@ -341,6 +341,7 @@ position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_w7pdo")
 
 [node name="VisibleArea2D" parent="." index="2" instance=ExtResource("7_00d15")]
+interaction_strategy_name = "PlayerInteractionStrategy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D" index="0"]
 position = Vector2(0, -40)

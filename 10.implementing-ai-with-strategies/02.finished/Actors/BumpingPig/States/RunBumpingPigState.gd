@@ -41,6 +41,6 @@ func turn(direction: int) -> void:
 		context.sprites.scale.x = 1
 
 
-func pick_bomb(bomb: Bomb) -> void:
-	bomb.queue_free()
-	context.state = context.find_child("BombPickingState")
+func pick(object: Node2D) -> void:
+	object.queue_free()
+	context.state = context.find_child("PickingState")

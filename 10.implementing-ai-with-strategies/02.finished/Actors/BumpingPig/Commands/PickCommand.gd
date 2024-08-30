@@ -1,8 +1,8 @@
 extends Command
 
 
-var bomb: Bomb
+var object: Node2D
 
 
 func execute() -> void:
-	receiver.pick_bomb(bomb)
+	receiver.pick(object)
