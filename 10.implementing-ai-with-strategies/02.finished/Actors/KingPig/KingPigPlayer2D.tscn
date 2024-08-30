@@ -394,6 +394,7 @@ libraries = {
 }
 
 [node name="MovementButtons" type="CanvasLayer" parent="." index="9"]
+visible = false
 
 [node name="JumpCommandButton" parent="MovementButtons" index="0" instance=ExtResource("8_aeh8f")]
 offset_left = 1600.0

@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=95 format=3 uid="uid://bjyrm70lgm1o2"]
+[gd_resource type="SpriteFrames" load_steps=107 format=3 uid="uid://bjyrm70lgm1o2"]
 
 [ext_resource type="Texture2D" uid="uid://dddvxo7c4dxdq" path="res://Assets/Kings and Pigs/03-Pig/Attack (34x28).png" id="1_ynh7y"]
 [ext_resource type="Texture2D" uid="uid://dxqu56phnnhe2" path="res://Assets/Kings and Pigs/03-Pig/Dead (34x28).png" id="2_mwg47"]
@@ -11,7 +11,10 @@
 [ext_resource type="Texture2D" uid="uid://dhs7wgf66icti" path="res://Assets/Kings and Pigs/03-Pig/Run (34x28).png" id="8_be7xt"]
 [ext_resource type="Texture2D" uid="uid://cyw3mm55kcscg" path="res://Assets/Kings and Pigs/04-Pig Throwing a Box/Idle (26x30).png" id="8_f07hn"]
 [ext_resource type="Texture2D" uid="uid://idtd0imp5oil" path="res://Assets/Kings and Pigs/05-Pig Thowing a Bomb/Picking Bomb (26x26).png" id="10_jsh6j"]
+[ext_resource type="Texture2D" uid="uid://d31cbwjy7fwxd" path="res://Assets/Kings and Pigs/07-Pig With a Match/Lighting the Cannon (26x18).png" id="10_yck6u"]
 [ext_resource type="Texture2D" uid="uid://dor51dehd06t" path="res://Assets/Kings and Pigs/04-Pig Throwing a Box/Picking Box (26x30).png" id="11_7p1q0"]
+[ext_resource type="Texture2D" uid="uid://d3cqqrwfwe1ux" path="res://Assets/Kings and Pigs/07-Pig With a Match/Lighting the Match (26x18).png" id="11_s7m6p"]
+[ext_resource type="Texture2D" uid="uid://bo4jgfgfe5oo8" path="res://Assets/Kings and Pigs/07-Pig With a Match/Match On (26x18).png" id="12_y4hg7"]
 [ext_resource type="Texture2D" uid="uid://c44r6br26tfmy" path="res://Assets/Kings and Pigs/05-Pig Thowing a Bomb/Run (26x26).png" id="13_xtdaf"]
 [ext_resource type="Texture2D" uid="uid://ct7epkohopr34" path="res://Assets/Kings and Pigs/04-Pig Throwing a Box/Run (26x30).png" id="14_rxw43"]
 [ext_resource type="Texture2D" uid="uid://cbuhfljoyb46i" path="res://Assets/Kings and Pigs/05-Pig Thowing a Bomb/Throwing Boom (26x26).png" id="15_2q435"]
@@ -180,6 +183,42 @@ region = Rect2(182, 0, 26, 30)
 [sub_resource type="AtlasTexture" id="AtlasTexture_55lj0"]
 atlas = ExtResource("8_f07hn")
 region = Rect2(208, 0, 26, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tplrp"]
+atlas = ExtResource("10_yck6u")
+region = Rect2(0, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lsa8l"]
+atlas = ExtResource("10_yck6u")
+region = Rect2(26, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bqpvx"]
+atlas = ExtResource("10_yck6u")
+region = Rect2(52, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ckiy"]
+atlas = ExtResource("11_s7m6p")
+region = Rect2(0, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_83qmb"]
+atlas = ExtResource("11_s7m6p")
+region = Rect2(26, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_senst"]
+atlas = ExtResource("11_s7m6p")
+region = Rect2(52, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a442h"]
+atlas = ExtResource("12_y4hg7")
+region = Rect2(0, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86ork"]
+atlas = ExtResource("12_y4hg7")
+region = Rect2(26, 0, 26, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_233x8"]
+atlas = ExtResource("12_y4hg7")
+region = Rect2(52, 0, 26, 18)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ivv3s"]
 atlas = ExtResource("10_jsh6j")
@@ -506,6 +545,48 @@ animations = [{
 }],
 "loop": false,
 "name": &"jump",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tplrp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lsa8l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bqpvx")
+}],
+"loop": false,
+"name": &"lighting_cannon",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8ckiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83qmb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_senst")
+}],
+"loop": false,
+"name": &"lighting_match",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a442h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86ork")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_233x8")
+}],
+"loop": true,
+"name": &"match_on",
 "speed": 10.0
 }, {
 "frames": [{

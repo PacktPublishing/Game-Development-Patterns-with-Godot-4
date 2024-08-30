@@ -1,4 +1,4 @@
-[gd_scene load_steps=59 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene load_steps=68 format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" path="res://Actors/BumpingPig/BumpingPig.gd" id="1_clwd4"]
 [ext_resource type="PackedScene" path="res://Recipes/BumpingEnemy2D/BumpingEnemy2D.tscn" id="1_ymmaj"]
@@ -102,6 +102,20 @@ size = Vector2(96, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fq3yo"]
 size = Vector2(384, 79.5)
+
+[sub_resource type="GDScript" id="GDScript_l2el3"]
+script/source = "extends Area2D
+
+
+func _input_event(viewport: Viewport, event: InputEvent, shape_idx: int) -> void:
+	if not event is InputEventMouseButton:
+		return
+	if event.button_index == 1 and event.pressed:
+		$CommandButtons.visible = not $CommandButtons.visible
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wud1h"]
+size = Vector2(96, 64)
 
 [sub_resource type="Animation" id="Animation_5b38s"]
 length = 0.001
@@ -869,6 +883,296 @@ tracks/2/keys = {
 "values": [Vector2(2, -13)]
 }
 
+[sub_resource type="Animation" id="Animation_wqjwn"]
+resource_name = "idle_crate"
+length = 0.80001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle_crate"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
+}
+
+[sub_resource type="Animation" id="Animation_l13ka"]
+resource_name = "run_crate"
+length = 0.50001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"run_crate"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4, 5]
+}
+
+[sub_resource type="Animation" id="Animation_1e4yu"]
+resource_name = "pick_crate"
+length = 0.40001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"pick_crate"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-2, -15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_bnuqb"]
+resource_name = "throw_crate"
+length = 0.40001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"throw_crate"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -15)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
+
+[sub_resource type="Animation" id="Animation_vb0cl"]
+resource_name = "light_match"
+length = 0.20001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lighting_match"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_twcgo"]
+resource_name = "mach_on"
+length = 0.20001
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"match_on"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
+[sub_resource type="Animation" id="Animation_c7jnh"]
+resource_name = "light_cannon"
+length = 0.20001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"lighting_cannon"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BumpingEnemy2D/Sprites/AnimatedSprite2D:frame")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [0, 1, 2]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_srs4m"]
 _data = {
 "RESET": SubResource("Animation_5b38s"),
@@ -878,11 +1182,18 @@ _data = {
 "hit": SubResource("Animation_qrum4"),
 "idle": SubResource("Animation_hqfsm"),
 "idle_bomb": SubResource("Animation_o1dw2"),
+"idle_crate": SubResource("Animation_wqjwn"),
 "jump": SubResource("Animation_7yxdl"),
+"light_cannon": SubResource("Animation_c7jnh"),
+"light_match": SubResource("Animation_vb0cl"),
+"mach_on": SubResource("Animation_twcgo"),
 "pick_bomb": SubResource("Animation_p4h4g"),
+"pick_crate": SubResource("Animation_1e4yu"),
 "run": SubResource("Animation_sai5l"),
 "run_bomb": SubResource("Animation_lyedy"),
-"throw_bomb": SubResource("Animation_1mjcl")
+"run_crate": SubResource("Animation_l13ka"),
+"throw_bomb": SubResource("Animation_1mjcl"),
+"throw_crate": SubResource("Animation_bnuqb")
 }
 
 [node name="BumpingPig" type="Node2D"]
@@ -929,6 +1240,7 @@ disabled = true
 debug_color = Color(0.960784, 0, 0.501961, 0.419608)
 
 [node name="VisionArea2D" type="Area2D" parent="BumpingEnemy2D/Sprites"]
+visible = false
 collision_layer = 0
 collision_mask = 16
 
@@ -938,6 +1250,7 @@ shape = SubResource("RectangleShape2D_lrexf")
 debug_color = Color(0.588235, 0.54902, 0, 0.419608)
 
 [node name="BombVisionArea2D" type="Area2D" parent="BumpingEnemy2D/Sprites"]
+visible = false
 collision_layer = 0
 collision_mask = 32
 
@@ -970,61 +1283,87 @@ position = Vector2(0, -32)
 [node name="DiamondLoot" parent="BumpingEnemy2D/Loots" instance=ExtResource("10_r3f0w")]
 drop_rate = 0.5
 
-[node name="DebugButtons" type="Node2D" parent="BumpingEnemy2D"]
+[node name="DebugButtons" type="Area2D" parent="BumpingEnemy2D"]
+visible = false
+script = SubResource("GDScript_l2el3")
 
-[node name="JumpButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/DebugButtons"]
+position = Vector2(0, -32)
+shape = SubResource("RectangleShape2D_wud1h")
+
+[node name="CommandButtons" type="Control" parent="BumpingEnemy2D/DebugButtons"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_left = -48.0
+offset_top = -64.0
+offset_right = 48.0
+offset_bottom = 16.0
+mouse_filter = 2
+
+[node name="JumpButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = -32.0
+offset_top = 88.0
+offset_right = 130.0
+offset_bottom = 148.0
 text = "Jump"
-command_path = NodePath("../../../Commands/JumpCommand")
+command_path = NodePath("../../../../Commands/JumpCommand")
 
-[node name="MoveLeftButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
-offset_left = -256.0
-offset_top = -72.0
-offset_right = -94.0
-offset_bottom = -12.0
+[node name="MoveLeftButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = -208.0
+offset_top = 0.0
+offset_right = -46.0
+offset_bottom = 60.0
 text = "Left"
-command_path = NodePath("../../../Commands/MoveLeftCommand")
+command_path = NodePath("../../../../Commands/MoveLeftCommand")
 
-[node name="MoveRightButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
-offset_left = 96.0
-offset_top = -72.0
-offset_right = 258.0
-offset_bottom = -12.0
+[node name="MoveRightButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = 144.0
+offset_top = 0.0
+offset_right = 306.0
+offset_bottom = 60.0
 text = "Right"
-command_path = NodePath("../../../Commands/MoveRightCommand")
+command_path = NodePath("../../../../Commands/MoveRightCommand")
 
-[node name="TurnLeftButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
-offset_left = -256.0
-offset_right = -94.0
+[node name="TurnLeftButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = -208.0
+offset_top = 88.0
+offset_right = -46.0
+offset_bottom = 148.0
 text = "Turn Left"
-command_path = NodePath("../../../Commands/TurnLeftCommand")
+command_path = NodePath("../../../../Commands/TurnLeftCommand")
 
-[node name="TurnRightButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
-offset_left = 96.0
-offset_right = 258.0
+[node name="TurnRightButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = 144.0
+offset_top = 88.0
+offset_right = 306.0
+offset_bottom = 148.0
 text = "Turn Right"
-command_path = NodePath("../../../Commands/TurnRightCommand")
+command_path = NodePath("../../../../Commands/TurnRightCommand")
 
-[node name="StopButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
-offset_top = -168.0
-offset_bottom = -108.0
+[node name="StopButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = -32.0
+offset_top = -96.0
+offset_right = 130.0
+offset_bottom = -36.0
 text = "Stop"
-command_path = NodePath("../../../Commands/StopCommand")
+command_path = NodePath("../../../../Commands/StopCommand")
 
-[node name="AttackButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
-offset_left = 96.0
-offset_top = -168.0
-offset_right = 258.0
-offset_bottom = -108.0
+[node name="AttackButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = 144.0
+offset_top = -96.0
+offset_right = 306.0
+offset_bottom = -36.0
 text = "Attack"
-command_path = NodePath("../../../Commands/AttackCommand")
+command_path = NodePath("../../../../Commands/AttackCommand")
 
-[node name="ThrowButton" parent="BumpingEnemy2D/DebugButtons" instance=ExtResource("12_vi7ry")]
-offset_left = -256.0
-offset_top = -168.0
-offset_right = -94.0
-offset_bottom = -108.0
+[node name="ThrowButton" parent="BumpingEnemy2D/DebugButtons/CommandButtons" instance=ExtResource("12_vi7ry")]
+offset_left = -208.0
+offset_top = -96.0
+offset_right = -46.0
+offset_bottom = -36.0
 text = "Throw"
-command_path = NodePath("../../../Commands/ThrowCommand")
+command_path = NodePath("../../../../Commands/ThrowCommand")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -1032,20 +1371,29 @@ libraries = {
 }
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
+active = false
 tree_root = ExtResource("12_iongw")
 advance_expression_base_node = NodePath("..")
 anim_player = NodePath("../AnimationPlayer")
 parameters/conditions/attack = false
 parameters/conditions/bomb_picked = false
+parameters/conditions/crate_picked = false
 parameters/conditions/fall = false
 parameters/conditions/hit = false
 parameters/conditions/idle = false
 parameters/conditions/jump = false
+parameters/conditions/light_match = false
 parameters/conditions/run = false
 parameters/StateMachine/conditions/hit = false
 parameters/StateMachine/conditions/idle = false
 parameters/StateMachine/conditions/run = false
 parameters/StateMachine/conditions/throw = false
+"parameters/StateMachine 2/conditions/hit" = false
+"parameters/StateMachine 2/conditions/idle" = false
+"parameters/StateMachine 2/conditions/run" = false
+"parameters/StateMachine 2/conditions/throw" = false
+"parameters/StateMachine 3/conditions/light_cannon" = false
+"parameters/StateMachine 3/conditions/match_off" = false
 script = ExtResource("11_r7qyh")
 
 [node name="States" type="Node" parent="."]
