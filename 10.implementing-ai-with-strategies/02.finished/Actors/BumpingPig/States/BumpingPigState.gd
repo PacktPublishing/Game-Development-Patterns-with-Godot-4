@@ -47,3 +47,7 @@ func turn(direction: int) -> void:
 
 func pick(object: Node2D) -> void:
 	pass
+
+
+func light(cannon: Cannon) -> void:
+	pass

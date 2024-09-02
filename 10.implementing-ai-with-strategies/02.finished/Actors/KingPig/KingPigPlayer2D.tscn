@@ -340,7 +340,7 @@ jump_action = "jump"
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_w7pdo")
 
-[node name="VisibleArea2D" parent="." index="2" instance=ExtResource("7_00d15")]
+[node name="VisibleArea2D" parent="." index="2" groups=["player"] instance=ExtResource("7_00d15")]
 interaction_strategy_name = "PlayerInteractionStrategy"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D" index="0"]

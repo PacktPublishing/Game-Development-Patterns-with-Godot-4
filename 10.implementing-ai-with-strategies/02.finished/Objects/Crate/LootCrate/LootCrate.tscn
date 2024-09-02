@@ -14,6 +14,3 @@ script = ExtResource("2_c10v6")
 
 [node name="HeartLoot" parent="Loots" index="1" instance=ExtResource("4_5bib8")]
 drop_rate = 0.5
-
-[node name="CollisionShape2D" parent="VisibleArea2D" index="0"]
-disabled = true

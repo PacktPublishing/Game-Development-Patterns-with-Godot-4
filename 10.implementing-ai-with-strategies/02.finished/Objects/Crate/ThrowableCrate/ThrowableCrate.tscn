@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxk6elm786ou3"]
+
+[ext_resource type="PackedScene" uid="uid://trvjobk3jg3t" path="res://Objects/Crate/Crate.tscn" id="1_enjcp"]
+[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://Recipes/VisionArea2D/VisibleArea2D.tscn" id="2_c5nb5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eib2w"]
+size = Vector2(96, 64)
+
+[node name="Crate" instance=ExtResource("1_enjcp")]
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="VisibleArea2D" parent="." index="8" instance=ExtResource("2_c5nb5")]
+interaction_strategy_name = "CrateInteractionStrategy"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D" index="0"]
+shape = SubResource("RectangleShape2D_eib2w")
+debug_color = Color(0.536271, 0.568902, 3.85046e-07, 0.42)

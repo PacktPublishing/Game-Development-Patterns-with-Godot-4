@@ -69,5 +69,9 @@ func attack() -> void:
 	state.attack()
 
 
+func light(cannon) -> void:
+	state.light(cannon)
+
+
 func turn(direction: int) -> void:
 	state.turn(direction)

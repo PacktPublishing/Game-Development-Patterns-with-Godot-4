@@ -44,3 +44,8 @@ func turn(direction: int) -> void:
 func pick(object: Node2D) -> void:
 	object.queue_free()
 	context.state = context.find_child("PickingState")
+
+
+func light(cannon: Cannon) -> void:
+	context.state = context.find_child("LightCannonState")
+	context.state.cannon = cannon

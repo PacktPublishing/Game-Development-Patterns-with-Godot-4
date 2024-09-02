@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene load_steps=73 format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" path="res://Actors/BumpingPig/BumpingPig.gd" id="1_clwd4"]
 [ext_resource type="PackedScene" path="res://Recipes/BumpingEnemy2D/BumpingEnemy2D.tscn" id="1_ymmaj"]
@@ -32,9 +32,11 @@
 [ext_resource type="Script" path="res://Actors/BumpingPig/States/PickingBumpingPigState.gd" id="22_h03rt"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/States/ThrowBumpingPigState.gd" id="22_vb0de"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/Commands/ThrowCommand.gd" id="25_ris1x"]
+[ext_resource type="Script" path="res://Actors/BumpingPig/LightCannonBumpingPigState.gd" id="26_7a50f"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/Commands/PickCommand.gd" id="31_2wtvc"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/InteractionStrategies/BombInteractionStrategy.gd" id="33_lb2cx"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/InteractionStrategies/CrateInteractionStrategy.gd" id="34_j0nai"]
+[ext_resource type="Script" path="res://Actors/BumpingPig/Commands/LightCannonBumpingPigCommand.gd" id="34_ypkun"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/InteractionStrategies/PlayerInteractionStrategy.gd" id="35_n5i5n"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/InteractionStrategies/CannonInteractionStrategy.gd" id="36_anhnq"]
 
@@ -99,7 +101,7 @@ size = Vector2(96, 64)
 size = Vector2(56, 80)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lrexf"]
-size = Vector2(160, 83)
+size = Vector2(96, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4s0sc"]
 size = Vector2(384, 88)
@@ -1246,7 +1248,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/VisionArea2D"]
-position = Vector2(0, -42.5)
+position = Vector2(0, -32.5)
 shape = SubResource("RectangleShape2D_lrexf")
 debug_color = Color(0.588235, 0.54902, 0, 0.419608)
 
@@ -1257,11 +1259,10 @@ collision_mask = 16
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/ThrowVisionArea2D"]
 position = Vector2(-192, -44)
 shape = SubResource("RectangleShape2D_4s0sc")
-disabled = true
 debug_color = Color(0.588235, 0.54902, 0, 0.419608)
 
 [node name="ThrowableObjectFactory" parent="BumpingEnemy2D/Sprites" instance=ExtResource("9_omti1")]
-position = Vector2(-104, -112)
+position = Vector2(-80, -88)
 
 [node name="ScorePoint" parent="BumpingEnemy2D" instance=ExtResource("8_byunn")]
 position = Vector2(0, -32)
@@ -1389,6 +1390,7 @@ parameters/StateMachine/conditions/throw = false
 "parameters/StateMachine 2/conditions/idle" = false
 "parameters/StateMachine 2/conditions/run" = false
 "parameters/StateMachine 2/conditions/throw" = false
+"parameters/StateMachine 3/conditions/hit" = false
 "parameters/StateMachine 3/conditions/light_cannon" = false
 "parameters/StateMachine 3/conditions/match_off" = false
 script = ExtResource("11_r7qyh")
@@ -1428,6 +1430,13 @@ script = ExtResource("22_07l43")
 [node name="ThrowState" type="Node" parent="States"]
 script = ExtResource("22_vb0de")
 
+[node name="LightCannonState" type="Node" parent="States"]
+script = ExtResource("26_7a50f")
+
+[node name="LightOnTimer" type="Timer" parent="States/LightCannonState"]
+wait_time = 0.2
+one_shot = true
+
 [node name="Commands" type="Node" parent="."]
 
 [node name="JumpCommand" type="Node" parent="Commands"]
@@ -1458,6 +1467,10 @@ script = ExtResource("31_2wtvc")
 
 [node name="ThrowCommand" type="Node" parent="Commands"]
 script = ExtResource("25_ris1x")
+impulse = Vector2(300, -300)
+
+[node name="LightCannonCommand" type="Node" parent="Commands"]
+script = ExtResource("34_ypkun")
 
 [node name="Strategies" type="Node" parent="."]
 
@@ -1486,3 +1499,5 @@ strategies_path = NodePath("../Strategies")
 [connection signal="bumped" from="BumpingEnemy2D" to="Brain" method="_on_bumping_enemy_2d_bumped"]
 [connection signal="hurt" from="BumpingEnemy2D/Sprites/HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
 [connection signal="area_entered" from="BumpingEnemy2D/Sprites/VisionArea2D" to="Brain" method="_on_vision_area_2d_area_entered"]
+[connection signal="area_entered" from="BumpingEnemy2D/Sprites/ThrowVisionArea2D" to="Brain" method="_on_throw_vision_area_2d_area_entered"]
+[connection signal="timeout" from="States/LightCannonState/LightOnTimer" to="States/LightCannonState" method="_on_light_on_timer_timeout"]

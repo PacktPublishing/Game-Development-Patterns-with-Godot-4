@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxkf516021f86"]
+[gd_scene load_steps=15 format=3 uid="uid://cxkf516021f86"]
 
 [ext_resource type="PackedScene" uid="uid://gcevl1ga7u1w" path="res://Levels/Level.tscn" id="1_fph8s"]
 [ext_resource type="PackedScene" uid="uid://b7ygipwdo26sw" path="res://Objects/Crate/LootCrate/LootCrate.tscn" id="2_be4tf"]
@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://co2jesq7s1cgo" path="res://Actors/BumpingPig/BumpingPig.tscn" id="3_vsa4p"]
 [ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://Objects/Bomb/Bomb.tscn" id="4_of4bt"]
 [ext_resource type="PackedScene" uid="uid://co68v6mfnhdj1" path="res://Actors/CratePig/CratePig.tscn" id="6_y8bfe"]
-[ext_resource type="PackedScene" uid="uid://trvjobk3jg3t" path="res://Objects/Crate/Crate.tscn" id="7_hx0lv"]
 [ext_resource type="PackedScene" uid="uid://caheecjbjsnwd" path="res://Objects/Door/Door.tscn" id="8_tkleq"]
+[ext_resource type="PackedScene" uid="uid://cxk6elm786ou3" path="res://Objects/Crate/ThrowableCrate/ThrowableCrate.tscn" id="10_8t6cd"]
+[ext_resource type="PackedScene" uid="uid://cupbfyeu4wxmb" path="res://Objects/Cannon/Cannon.tscn" id="10_osc4y"]
 
 [sub_resource type="Curve2D" id="Curve2D_w8egf"]
 _data = {
@@ -94,6 +95,9 @@ target_door = "SecretDoor"
 [node name="Door" parent="Doors" index="2"]
 position = Vector2(432, 1020)
 
+[node name="Cannon" parent="." index="4" instance=ExtResource("10_osc4y")]
+position = Vector2(1848, 1024)
+
 [node name="Bomb" parent="Bombs" index="0" instance=ExtResource("4_of4bt")]
 position = Vector2(3652, 888)
 
@@ -101,7 +105,7 @@ position = Vector2(3652, 888)
 position = Vector2(4040, 763)
 
 [node name="Bomb3" parent="Bombs" index="2" instance=ExtResource("4_of4bt")]
-position = Vector2(1996, 1016)
+position = Vector2(2056, 984)
 
 [node name="Diamond" parent="Diamonds" index="0" instance=ExtResource("3_1qtke")]
 position = Vector2(704, 860)
@@ -141,48 +145,77 @@ position = Vector2(3156, 608)
 
 [node name="Crate" parent="Crates" index="0" instance=ExtResource("2_be4tf")]
 position = Vector2(816, 984)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate2" parent="Crates" index="1" instance=ExtResource("2_be4tf")]
 position = Vector2(888, 984)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate3" parent="Crates" index="2" instance=ExtResource("2_be4tf")]
 position = Vector2(956, 984)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate4" parent="Crates" index="3" instance=ExtResource("2_be4tf")]
 position = Vector2(2096, 1240)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate5" parent="Crates" index="4" instance=ExtResource("2_be4tf")]
 position = Vector2(2176, 1240)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate6" parent="Crates" index="5" instance=ExtResource("2_be4tf")]
 position = Vector2(2132, 1172)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate7" parent="Crates" index="6" instance=ExtResource("2_be4tf")]
 position = Vector2(2776, 1124)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate8" parent="Crates" index="7" instance=ExtResource("2_be4tf")]
 position = Vector2(2696, 1124)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate9" parent="Crates" index="8" instance=ExtResource("2_be4tf")]
 position = Vector2(2736, 1056)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate10" parent="Crates" index="9" instance=ExtResource("2_be4tf")]
 position = Vector2(3120, 1240)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate11" parent="Crates" index="10" instance=ExtResource("2_be4tf")]
 position = Vector2(3196, 1240)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate12" parent="Crates" index="11" instance=ExtResource("2_be4tf")]
 position = Vector2(3156, 1172)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate13" parent="Crates" index="12" instance=ExtResource("2_be4tf")]
 position = Vector2(3248, 1172)
+contact_monitor = false
+max_contacts_reported = 0
 
 [node name="Crate14" parent="Crates" index="13" instance=ExtResource("2_be4tf")]
 position = Vector2(4300, 1108)
+contact_monitor = false
+max_contacts_reported = 0
 
-[node name="Crate15" parent="Crates" index="14" instance=ExtResource("7_hx0lv")]
-position = Vector2(2664, 976)
+[node name="Crate15" parent="Crates" index="14" instance=ExtResource("10_8t6cd")]
+position = Vector2(2480, 944)
+contact_monitor = false
 
 [node name="BumpingPig" parent="Enemies" index="0" instance=ExtResource("3_vsa4p")]
 position = Vector2(2740, 1256)
@@ -202,14 +235,14 @@ position = Vector2(2864, 640)
 [node name="CratePig3" parent="Enemies" index="5" instance=ExtResource("6_y8bfe")]
 position = Vector2(2940, 640)
 
-[node name="Camera2D" parent="." index="10"]
-position = Vector2(416, 968)
+[node name="Camera2D" parent="." index="11"]
+position = Vector2(1504, 936)
 limit_top = 220
 limit_right = 4540
 limit_bottom = 1472
 
-[node name="PlayerCharacter2D" parent="." index="11"]
-position = Vector2(416, 968)
+[node name="PlayerCharacter2D" parent="." index="12"]
+position = Vector2(1504, 936)
 
 [connection signal="opened" from="Doors/Door2" to="." method="_on_door_opened"]
 [connection signal="opened" from="Doors/SecretDoor" to="." method="_on_door_opened"]

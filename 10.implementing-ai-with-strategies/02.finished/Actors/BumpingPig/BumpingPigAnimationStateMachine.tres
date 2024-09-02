@@ -1,4 +1,4 @@
-[gd_resource type="AnimationNodeStateMachine" load_steps=80 format=3 uid="uid://cdeqa220fv0tw"]
+[gd_resource type="AnimationNodeStateMachine" load_steps=85 format=3 uid="uid://cdeqa220fv0tw"]
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_4ld0v"]
 animation = &"hit"
@@ -64,6 +64,9 @@ states/throw_crate/position = Vector2(200, 384)
 transitions = ["Start", "idle_crate", SubResource("AnimationNodeStateMachineTransition_pxrqb"), "idle_crate", "run_crate", SubResource("AnimationNodeStateMachineTransition_mqonr"), "idle_crate", "throw_crate", SubResource("AnimationNodeStateMachineTransition_8n4o0"), "run_crate", "throw_crate", SubResource("AnimationNodeStateMachineTransition_bnwkq"), "run_crate", "idle_crate", SubResource("AnimationNodeStateMachineTransition_ui1t2"), "run_crate", "hit", SubResource("AnimationNodeStateMachineTransition_g8e0k"), "idle_crate", "hit", SubResource("AnimationNodeStateMachineTransition_66c30"), "throw_crate", "hit", SubResource("AnimationNodeStateMachineTransition_g5wso"), "throw_crate", "End", SubResource("AnimationNodeStateMachineTransition_gbwa4"), "hit", "End", SubResource("AnimationNodeStateMachineTransition_tqmm3")]
 graph_offset = Vector2(-204, 126)
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_6x4g7"]
+animation = &"hit"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_20wck"]
 animation = &"light_cannon"
 
@@ -93,16 +96,35 @@ advance_condition = &"match_off"
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_0ya4r"]
+switch_mode = 2
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_k5p3t"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kvtwh"]
+advance_mode = 2
+advance_condition = &"hit"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_djr0w"]
+advance_mode = 2
+advance_condition = &"hit"
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fh6rs"]
 states/End/position = Vector2(553, 246)
 states/Start/position = Vector2(198, 100)
+states/hit/node = SubResource("AnimationNodeAnimation_6x4g7")
+states/hit/position = Vector2(446, 184)
 states/light_cannon/node = SubResource("AnimationNodeAnimation_20wck")
 states/light_cannon/position = Vector2(553, 100)
 states/light_match/node = SubResource("AnimationNodeAnimation_8pko4")
 states/light_match/position = Vector2(351, 246)
 states/mach_on/node = SubResource("AnimationNodeAnimation_puruv")
 states/mach_on/position = Vector2(351, 100)
-transitions = ["Start", "mach_on", SubResource("AnimationNodeStateMachineTransition_olq46"), "mach_on", "light_cannon", SubResource("AnimationNodeStateMachineTransition_0twvp"), "light_cannon", "End", SubResource("AnimationNodeStateMachineTransition_5cd84"), "mach_on", "light_match", SubResource("AnimationNodeStateMachineTransition_vvpi0"), "light_match", "End", SubResource("AnimationNodeStateMachineTransition_7whp2")]
+transitions = ["Start", "mach_on", SubResource("AnimationNodeStateMachineTransition_olq46"), "mach_on", "light_cannon", SubResource("AnimationNodeStateMachineTransition_0twvp"), "light_cannon", "End", SubResource("AnimationNodeStateMachineTransition_5cd84"), "mach_on", "light_match", SubResource("AnimationNodeStateMachineTransition_vvpi0"), "light_match", "End", SubResource("AnimationNodeStateMachineTransition_7whp2"), "hit", "End", SubResource("AnimationNodeStateMachineTransition_0ya4r"), "mach_on", "hit", SubResource("AnimationNodeStateMachineTransition_k5p3t"), "light_cannon", "hit", SubResource("AnimationNodeStateMachineTransition_kvtwh"), "light_match", "hit", SubResource("AnimationNodeStateMachineTransition_djr0w")]
+graph_offset = Vector2(-27, 47)
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_levh0"]
 animation = &"hit"
@@ -310,17 +332,17 @@ advance_condition = &"run"
 advance_mode = 2
 advance_condition = &"idle"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_xh4l3"]
-advance_mode = 2
-advance_condition = &"light_match"
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y7tol"]
 switch_mode = 2
 advance_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_kkfiq"]
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_mekbd"]
 advance_mode = 2
 advance_condition = &"light_match"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_5gjpy"]
+advance_mode = 2
+advance_condition = &"run"
 
 [resource]
 states/End/position = Vector2(1036, 95.5483)
@@ -330,7 +352,7 @@ states/StateMachine/position = Vector2(679, 182.548)
 "states/StateMachine 2/node" = SubResource("AnimationNodeStateMachine_y0l54")
 "states/StateMachine 2/position" = Vector2(679, 17.5483)
 "states/StateMachine 3/node" = SubResource("AnimationNodeStateMachine_fh6rs")
-"states/StateMachine 3/position" = Vector2(-9, 182.548)
+"states/StateMachine 3/position" = Vector2(893, 280.548)
 states/attack/node = SubResource("AnimationNodeAnimation_2hrbl")
 states/attack/position = Vector2(325, 248.548)
 states/dead/node = SubResource("AnimationNodeAnimation_0ttd3")
@@ -344,12 +366,12 @@ states/idle/position = Vector2(325, 95.5483)
 states/jump/node = SubResource("AnimationNodeAnimation_gws4s")
 states/jump/position = Vector2(442, -55)
 states/light_match/node = SubResource("AnimationNodeAnimation_nwch8")
-states/light_match/position = Vector2(189, 182.548)
+states/light_match/position = Vector2(893, 182.548)
 states/pick_bomb/node = SubResource("AnimationNodeAnimation_4201m")
 states/pick_bomb/position = Vector2(810, 95.5483)
 states/pick_crate/node = SubResource("AnimationNodeAnimation_c47gs")
 states/pick_crate/position = Vector2(558, -55)
 states/run/node = SubResource("AnimationNodeAnimation_skbx5")
 states/run/position = Vector2(558, 95.5483)
-transitions = ["idle", "run", SubResource("AnimationNodeStateMachineTransition_k1xwe"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_5sef4"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_w3pc0"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_smosx"), "idle", "hit", SubResource("AnimationNodeStateMachineTransition_cv227"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_sw85v"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_3nr0i"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_xo0uq"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_w22fp"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_sltu0"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_44c7h"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_hducs"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_atqd3"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_ccm8v"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_i8usw"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wiukb"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_27rms"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_8au4n"), "fall", "run", SubResource("AnimationNodeStateMachineTransition_l45u4"), "pick_bomb", "StateMachine", SubResource("AnimationNodeStateMachineTransition_c6265"), "StateMachine", "idle", SubResource("AnimationNodeStateMachineTransition_jruc4"), "run", "pick_bomb", SubResource("AnimationNodeStateMachineTransition_k0gjw"), "StateMachine", "run", SubResource("AnimationNodeStateMachineTransition_gh8w7"), "run", "pick_crate", SubResource("AnimationNodeStateMachineTransition_5hm5j"), "pick_crate", "StateMachine 2", SubResource("AnimationNodeStateMachineTransition_1n4dr"), "StateMachine 2", "run", SubResource("AnimationNodeStateMachineTransition_jkxm6"), "StateMachine 2", "idle", SubResource("AnimationNodeStateMachineTransition_qdkij"), "run", "light_match", SubResource("AnimationNodeStateMachineTransition_xh4l3"), "light_match", "StateMachine 3", SubResource("AnimationNodeStateMachineTransition_y7tol"), "idle", "light_match", SubResource("AnimationNodeStateMachineTransition_kkfiq")]
-graph_offset = Vector2(4, -107.452)
+transitions = ["idle", "run", SubResource("AnimationNodeStateMachineTransition_k1xwe"), "run", "idle", SubResource("AnimationNodeStateMachineTransition_5sef4"), "run", "hit", SubResource("AnimationNodeStateMachineTransition_w3pc0"), "hit", "run", SubResource("AnimationNodeStateMachineTransition_smosx"), "idle", "hit", SubResource("AnimationNodeStateMachineTransition_cv227"), "hit", "idle", SubResource("AnimationNodeStateMachineTransition_sw85v"), "hit", "attack", SubResource("AnimationNodeStateMachineTransition_3nr0i"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_xo0uq"), "idle", "attack", SubResource("AnimationNodeStateMachineTransition_w22fp"), "attack", "idle", SubResource("AnimationNodeStateMachineTransition_sltu0"), "attack", "run", SubResource("AnimationNodeStateMachineTransition_44c7h"), "run", "attack", SubResource("AnimationNodeStateMachineTransition_hducs"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_atqd3"), "Start", "idle", SubResource("AnimationNodeStateMachineTransition_ccm8v"), "run", "jump", SubResource("AnimationNodeStateMachineTransition_i8usw"), "idle", "jump", SubResource("AnimationNodeStateMachineTransition_wiukb"), "jump", "fall", SubResource("AnimationNodeStateMachineTransition_27rms"), "fall", "idle", SubResource("AnimationNodeStateMachineTransition_8au4n"), "fall", "run", SubResource("AnimationNodeStateMachineTransition_l45u4"), "pick_bomb", "StateMachine", SubResource("AnimationNodeStateMachineTransition_c6265"), "StateMachine", "idle", SubResource("AnimationNodeStateMachineTransition_jruc4"), "run", "pick_bomb", SubResource("AnimationNodeStateMachineTransition_k0gjw"), "StateMachine", "run", SubResource("AnimationNodeStateMachineTransition_gh8w7"), "run", "pick_crate", SubResource("AnimationNodeStateMachineTransition_5hm5j"), "pick_crate", "StateMachine 2", SubResource("AnimationNodeStateMachineTransition_1n4dr"), "StateMachine 2", "run", SubResource("AnimationNodeStateMachineTransition_jkxm6"), "StateMachine 2", "idle", SubResource("AnimationNodeStateMachineTransition_qdkij"), "light_match", "StateMachine 3", SubResource("AnimationNodeStateMachineTransition_y7tol"), "run", "light_match", SubResource("AnimationNodeStateMachineTransition_mekbd"), "StateMachine 3", "run", SubResource("AnimationNodeStateMachineTransition_5gjpy")]
+graph_offset = Vector2(195, 86.548)

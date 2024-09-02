@@ -23,3 +23,8 @@ func damage(_damage: int) -> void:
 func shatter():
 	broke.emit()
 	animation_player.play("break")
+
+
+func _on_body_entered(body: Node) -> void:
+	if linear_velocity.length() >= 300:
+		shatter()
