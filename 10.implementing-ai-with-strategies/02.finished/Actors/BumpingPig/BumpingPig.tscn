@@ -104,7 +104,7 @@ size = Vector2(56, 80)
 size = Vector2(96, 63)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4s0sc"]
-size = Vector2(384, 88)
+size = Vector2(384, 64)
 
 [sub_resource type="GDScript" id="GDScript_l2el3"]
 script/source = "extends Area2D
@@ -1257,7 +1257,7 @@ collision_layer = 0
 collision_mask = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D/Sprites/ThrowVisionArea2D"]
-position = Vector2(-192, -44)
+position = Vector2(-192, -32)
 shape = SubResource("RectangleShape2D_4s0sc")
 debug_color = Color(0.588235, 0.54902, 0, 0.419608)
 
@@ -1476,19 +1476,15 @@ script = ExtResource("34_ypkun")
 
 [node name="BombInteractionStrategy" type="Node" parent="Strategies"]
 script = ExtResource("33_lb2cx")
-object_type = "bomb"
 
 [node name="CrateInteractionStrategy" type="Node" parent="Strategies"]
 script = ExtResource("34_j0nai")
-object_type = "crate"
 
 [node name="PlayerInteractionStrategy" type="Node" parent="Strategies"]
 script = ExtResource("35_n5i5n")
-object_type = "player"
 
 [node name="CannonInteractionStrategy" type="Node" parent="Strategies"]
 script = ExtResource("36_anhnq")
-object_type = "cannon"
 
 [node name="Brain" type="Node" parent="."]
 script = ExtResource("18_px1ij")

@@ -46,7 +46,6 @@ func _on_throw_vision_area_2d_area_entered(area: Area2D) -> void:
 	if not area.is_in_group("player"):
 		return
 	var throw_direction: int = sign(actor.body.global_position.direction_to(area.global_position).x)
-	var throw_force := Vector2(600 * throw_direction, -600)
+	throw_command.throw_force.x = throw_command.impulse.x * throw_direction
 	
-	throw_command.throw_force = throw_force
 	throw_command.execute()

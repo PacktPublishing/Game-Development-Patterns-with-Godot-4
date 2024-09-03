@@ -7,8 +7,6 @@
 size = Vector2(96, 64)
 
 [node name="Crate" instance=ExtResource("1_enjcp")]
-contact_monitor = true
-max_contacts_reported = 1
 
 [node name="VisibleArea2D" parent="." index="8" instance=ExtResource("2_c5nb5")]
 interaction_strategy_name = "CrateInteractionStrategy"

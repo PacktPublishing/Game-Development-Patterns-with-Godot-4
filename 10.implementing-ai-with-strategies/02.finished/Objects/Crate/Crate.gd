@@ -26,5 +26,4 @@ func shatter():
 
 
 func _on_body_entered(body: Node) -> void:
-	if linear_velocity.length() >= 300:
-		shatter()
+	shatter()
