@@ -1,5 +1,6 @@
 extends InteractionStrategy
 
+
 func execute() -> void:
 	context.pick_command.object = interacted_area.owner
 	context.actor.picking_object_type = "crate"

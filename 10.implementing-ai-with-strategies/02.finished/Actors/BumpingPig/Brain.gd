@@ -7,9 +7,6 @@ class_name BumpingPigBrain
 @export_node_path("Node") var commands_path
 @onready var commands := get_node(commands_path)
 
-@export_node_path("Node") var strategies_path
-@onready var strategies := get_node(strategies_path)
-
 var interaction_strategy: InteractionStrategy
 
 @onready var attack_command: Command = commands.get_node("AttackCommand")
@@ -37,7 +34,8 @@ func _on_bumping_enemy_2d_bumped() -> void:
 
 
 func _on_vision_area_2d_area_entered(area: Area2D) -> void:
-	interaction_strategy = strategies.get_node(area.interaction_strategy_name)
+	interaction_strategy = area.interaction_strategy
+	interaction_strategy.context = self
 	interaction_strategy.interacted_area = area
 	interaction_strategy.execute()
 
