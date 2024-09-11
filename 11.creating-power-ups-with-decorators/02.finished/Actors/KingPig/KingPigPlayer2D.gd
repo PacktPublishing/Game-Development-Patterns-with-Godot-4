@@ -20,6 +20,8 @@ signal lives_decreased(amount)
 @onready var hit_box = $HitArea2D
 @onready var animation_player = $AnimationPlayer
 
+@onready var attack_command := $Commands/AttackCommand
+
 var fall_speed = 0.0
 
 func _ready() -> void:
@@ -59,7 +61,7 @@ func _unhandled_input(event):
 	if event.is_action("attack"):
 		if event.is_pressed():
 			if is_on_floor():
-				attack()
+				attack_command.execute()
 	super(event)
 
 

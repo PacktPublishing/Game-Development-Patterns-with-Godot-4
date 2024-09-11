@@ -7,20 +7,25 @@ extends WallJumpingCharacter2D
 @export var jump_action = "jump"
 
 
+@onready var jump_command := $Commands/JumpCommand
+@onready var move_left_command := $Commands/MoveLeftCommand
+@onready var move_right_command := $Commands/MoveRightCommand
+
+
 func _unhandled_input(event):
 	# Horizontal movement
 	if event.is_action(move_left_action):
 		if event.is_pressed():
-			direction = -1
+			move_left_command.execute()
 		elif Input.is_action_pressed(move_right_action):
-			direction = 1
+			move_right_command.execute()
 		else:
 			direction = 0
 	elif event.is_action(move_right_action):
 		if event.is_pressed():
-			direction = 1
+			move_right_command.execute()
 		elif Input.is_action_pressed(move_left_action):
-			direction = -1
+			move_left_command.execute()
 		else:
 			direction = 0
 	# Vertical movement
@@ -29,9 +34,9 @@ func _unhandled_input(event):
 		if Input.is_action_pressed(move_down_action):
 			enable_pass_through()
 		else:
-			jump()
+			jump_command.execute()
 	elif event.is_action_released(jump_action):
-		cancel_jump()
+		jump_command.unexecute()
 	
 	if event.is_action_released(move_down_action):
 		disable_pass_through()
