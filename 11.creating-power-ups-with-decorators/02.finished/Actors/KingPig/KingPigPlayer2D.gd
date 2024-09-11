@@ -5,7 +5,8 @@ signal died
 signal lives_increased(amount)
 signal lives_decreased(amount)
 
-@export var lives = 3
+@export var lives := 3
+@export var attack_strength := 1
 
 @onready var animated_sprites = $Sprites/AnimatedSprite2D
 @onready var sprites = $Sprites
@@ -27,6 +28,10 @@ var fall_speed = 0.0
 func _ready() -> void:
 	for command in $Commands.get_children():
 		command.receiver = self
+	var attack_decorator := preload("res://Actors/KingPig/Decorators/AttackCommandDecorator.tscn").instantiate() as CommandDecorator
+	$Decorators.add_child(attack_decorator)
+	attack_decorator.add_decoration(attack_command)
+	attack_command = attack_decorator
 
 
 func _physics_process(delta):
@@ -66,6 +71,7 @@ func _unhandled_input(event):
 
 
 func attack() -> void:
+	hit_box.damage = attack_strength
 	animation_player.play("attack")
 
 

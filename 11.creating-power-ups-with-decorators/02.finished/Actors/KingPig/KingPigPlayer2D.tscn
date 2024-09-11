@@ -331,6 +331,7 @@ _data = {
 [node name="PlayerCharacter2D" instance=ExtResource("1_8gxmr")]
 script = ExtResource("2_5hkq3")
 lives = 3
+attack_strength = 1
 move_left_action = "move_left"
 move_right_action = "move_right"
 move_down_action = "move_down"
@@ -443,6 +444,8 @@ script = ExtResource("11_jnu27")
 [node name="MoveRightCommand" type="Node" parent="Commands" index="3"]
 script = ExtResource("11_jnu27")
 direction = 1
+
+[node name="Decorators" type="Node" parent="." index="11"]
 
 [connection signal="hurt" from="HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
 [connection signal="animation_finished" from="Sprites/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
