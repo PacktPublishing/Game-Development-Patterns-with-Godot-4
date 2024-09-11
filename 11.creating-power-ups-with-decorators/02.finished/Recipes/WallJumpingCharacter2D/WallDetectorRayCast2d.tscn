@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bggeq68cp22sp"]
+
+[ext_resource type="Script" path="res://Recipes/WallJumpingCharacter2D/WallDetectorRayCast2D.gd" id="1_wnjby"]
+
+[node name="WallDetectorRayCast2D" type="RayCast2D"]
+target_position = Vector2(128, 0)
+collision_mask = 3
+script = ExtResource("1_wnjby")
