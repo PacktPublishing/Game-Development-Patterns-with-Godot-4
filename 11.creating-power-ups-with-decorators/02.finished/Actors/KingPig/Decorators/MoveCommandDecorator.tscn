@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfflprvivl2sl"]
-
-[ext_resource type="PackedScene" uid="uid://isikegkjrjah" path="res://Actors/KingPig/Decorators/CommandDecorator.tscn" id="1_6oypj"]
-[ext_resource type="Script" path="res://Actors/KingPig/Decorators/MoveCommandDecorator.gd" id="2_f2bg0"]
-
-[node name="MoveCommandDecorator" instance=ExtResource("1_6oypj")]
-script = ExtResource("2_f2bg0")
-speed_multiplier = 1.5

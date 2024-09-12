@@ -28,10 +28,6 @@ var fall_speed = 0.0
 func _ready() -> void:
 	for command in $Commands.get_children():
 		command.receiver = self
-	var attack_decorator := preload("res://Actors/KingPig/Decorators/AttackCommandDecorator.tscn").instantiate() as CommandDecorator
-	$Decorators.add_child(attack_decorator)
-	attack_decorator.add_decoration(attack_command)
-	attack_command = attack_decorator
 
 
 func _physics_process(delta):

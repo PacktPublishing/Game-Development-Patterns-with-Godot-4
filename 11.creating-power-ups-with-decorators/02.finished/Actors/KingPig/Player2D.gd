@@ -10,6 +10,7 @@ extends WallJumpingCharacter2D
 @onready var jump_command := $Commands/JumpCommand
 @onready var move_left_command := $Commands/MoveLeftCommand
 @onready var move_right_command := $Commands/MoveRightCommand
+@onready var stop_command := $Commands/StopCommand
 
 
 func _unhandled_input(event):
@@ -20,14 +21,14 @@ func _unhandled_input(event):
 		elif Input.is_action_pressed(move_right_action):
 			move_right_command.execute()
 		else:
-			direction = 0
+			stop_command.execute()
 	elif event.is_action(move_right_action):
 		if event.is_pressed():
 			move_right_command.execute()
 		elif Input.is_action_pressed(move_left_action):
 			move_left_command.execute()
 		else:
-			direction = 0
+			stop_command.execute()
 	# Vertical movement
 	if event.is_action_pressed(jump_action):
 		# Pass through logic

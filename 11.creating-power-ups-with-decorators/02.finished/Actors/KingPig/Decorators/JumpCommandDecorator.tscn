@@ -1,8 +1,0 @@
-[gd_scene load_steps=3 format=3 uid="uid://c47g8o8v5q6l0"]
-
-[ext_resource type="PackedScene" uid="uid://isikegkjrjah" path="res://Actors/KingPig/Decorators/CommandDecorator.tscn" id="1_0jifg"]
-[ext_resource type="Script" path="res://Actors/KingPig/Decorators/JumpCommandDecorator.gd" id="2_yhvq6"]
-
-[node name="JumpCommandDecorator" instance=ExtResource("1_0jifg")]
-script = ExtResource("2_yhvq6")
-jump_strength_multiplier = 1.5

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dprwhjecb36go"]
+
+[ext_resource type="Script" path="res://Game/PowerUps/PowerUps.gd" id="1_4dajr"]
+
+[node name="PowerUps" type="Node"]
+script = ExtResource("1_4dajr")

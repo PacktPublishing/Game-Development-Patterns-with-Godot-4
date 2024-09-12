@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://b6csjxqmlfpn8"]
+[gd_scene load_steps=23 format=3 uid="uid://b6csjxqmlfpn8"]
 
 [ext_resource type="PackedScene" uid="uid://datjjcj0av25b" path="res://Recipes/WallJumpingCharacter2D/WallJumpingCharacter2D.tscn" id="1_8gxmr"]
 [ext_resource type="Script" path="res://Actors/KingPig/KingPigPlayer2D.gd" id="2_5hkq3"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Actors/KingPig/Commands/JumpCommand.gd" id="9_nswdi"]
 [ext_resource type="Script" path="res://Actors/KingPig/Commands/AttackCommand.gd" id="10_c38an"]
 [ext_resource type="Script" path="res://Actors/KingPig/Commands/MoveCommand.gd" id="11_jnu27"]
+[ext_resource type="Script" path="res://Actors/KingPig/Commands/StopCommand.gd" id="12_6j4yr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7pdo"]
 size = Vector2(64, 80)
@@ -341,7 +342,7 @@ jump_action = "jump"
 position = Vector2(0, -40)
 shape = SubResource("RectangleShape2D_w7pdo")
 
-[node name="VisibleArea2D" parent="." index="2" groups=["player"] instance=ExtResource("7_00d15")]
+[node name="VisibleArea2D" parent="." index="2" instance=ExtResource("7_00d15")]
 interaction_strategy_file = "res://Actors/BumpingPig/InteractionStrategies/PlayerInteractionStrategy.gd"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D" index="0"]
@@ -445,7 +446,8 @@ script = ExtResource("11_jnu27")
 script = ExtResource("11_jnu27")
 direction = 1
 
-[node name="Decorators" type="Node" parent="." index="11"]
+[node name="StopCommand" type="Node" parent="Commands" index="4"]
+script = ExtResource("12_6j4yr")
 
 [connection signal="hurt" from="HurtArea2D" to="." method="_on_hurt_area_2d_hurt"]
 [connection signal="animation_finished" from="Sprites/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

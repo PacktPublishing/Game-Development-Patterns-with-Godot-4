@@ -1,6 +1,8 @@
-extends RigidBody2D
+extends Node2D
+class_name Diamond
 
-@onready var score_points = $ScorePoint
+
+@onready var score_points := $RigidBody2D/ScorePoint
 
 
 func _on_interactive_area_2d_interaction_available():

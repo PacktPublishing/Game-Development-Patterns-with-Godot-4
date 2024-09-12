@@ -19,12 +19,20 @@ func _physics_process(delta):
 	move_and_slide()
 
 
-func jump():
+func move(_direction: int) -> void:
+	direction = _direction
+
+
+func stop() -> void:
+	direction = 0
+
+
+func jump() -> void:
 	if is_on_floor():
 		velocity.y = -jump_strength
 		jumped.emit()
 
 
-func cancel_jump():
+func cancel_jump() -> void:
 	if not is_on_floor() and velocity.y < 0.0:
 		velocity.y = 0.0
