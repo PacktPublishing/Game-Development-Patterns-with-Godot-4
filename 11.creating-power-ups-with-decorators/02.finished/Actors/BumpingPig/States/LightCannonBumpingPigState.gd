@@ -21,7 +21,7 @@ func exit() -> void:
 
 
 func get_hurt(damage: int) -> void:
-	context.health -= damage
+	context.body.stats.lives -= damage
 	context.state = context.find_child("HitState")
 
 

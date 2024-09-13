@@ -1,7 +1,8 @@
-[gd_scene load_steps=23 format=3 uid="uid://b6csjxqmlfpn8"]
+[gd_scene load_steps=24 format=3 uid="uid://b6csjxqmlfpn8"]
 
 [ext_resource type="PackedScene" uid="uid://datjjcj0av25b" path="res://Recipes/WallJumpingCharacter2D/WallJumpingCharacter2D.tscn" id="1_8gxmr"]
 [ext_resource type="Script" path="res://Actors/KingPig/KingPigPlayer2D.gd" id="2_5hkq3"]
+[ext_resource type="Resource" uid="uid://hpotp4we1lqn" path="res://Actors/KingPig/KingPigStats.tres" id="3_755wo"]
 [ext_resource type="SpriteFrames" uid="uid://bavfwgk0ajiq" path="res://Actors/KingPig/KingPigSpriteFrames.tres" id="6_iftfv"]
 [ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://Recipes/VisionArea2D/VisibleArea2D.tscn" id="7_00d15"]
 [ext_resource type="SpriteFrames" uid="uid://b3kwlknvpnuy5" path="res://Assets/Kings and Pigs/13-Dialogue Boxes/InterrogationSpriteFrames.tres" id="7_jaj1j"]
@@ -331,12 +332,11 @@ _data = {
 
 [node name="PlayerCharacter2D" instance=ExtResource("1_8gxmr")]
 script = ExtResource("2_5hkq3")
-lives = 3
-attack_strength = 1
 move_left_action = "move_left"
 move_right_action = "move_right"
 move_down_action = "move_down"
 jump_action = "jump"
+stats = ExtResource("3_755wo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 position = Vector2(0, -40)

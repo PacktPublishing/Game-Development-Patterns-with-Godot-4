@@ -1,9 +1,10 @@
-[gd_scene load_steps=69 format=3 uid="uid://co2jesq7s1cgo"]
+[gd_scene load_steps=70 format=3 uid="uid://co2jesq7s1cgo"]
 
 [ext_resource type="Script" path="res://Actors/BumpingPig/BumpingPig.gd" id="1_clwd4"]
 [ext_resource type="PackedScene" path="res://Recipes/BumpingEnemy2D/BumpingEnemy2D.tscn" id="1_ymmaj"]
 [ext_resource type="SpriteFrames" uid="uid://bjyrm70lgm1o2" path="res://Actors/BumpingPig/BumpingPigSpriteFrames.tres" id="2_a6ife"]
 [ext_resource type="Texture2D" uid="uid://e8bvey5srkuk" path="res://Assets/Kings and Pigs/13-Dialogue Boxes/!!! In (24x8).png" id="3_35cd2"]
+[ext_resource type="Resource" uid="uid://bauqqsqn6bwiu" path="res://Actors/BumpingPig/BumpingPigStats.tres" id="3_dpt8l"]
 [ext_resource type="Texture2D" uid="uid://dm3qo6rlj8bht" path="res://Assets/Kings and Pigs/13-Dialogue Boxes/!!! Out (24x8).png" id="4_caw1t"]
 [ext_resource type="PackedScene" uid="uid://e56m6toaqlmg" path="res://Recipes/Hazard2D/HurtArea2D.tscn" id="5_fo8ao"]
 [ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="6_o0xur"]
@@ -1201,7 +1202,7 @@ script = ExtResource("1_clwd4")
 
 [node name="BumpingEnemy2D" parent="." instance=ExtResource("1_ymmaj")]
 collision_mask = 3
-speed = 200.0
+stats = ExtResource("3_dpt8l")
 direction = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BumpingEnemy2D"]

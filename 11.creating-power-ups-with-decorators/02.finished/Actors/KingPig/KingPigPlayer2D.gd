@@ -5,12 +5,10 @@ signal died
 signal lives_increased(amount)
 signal lives_decreased(amount)
 
-@export var lives := 3
-@export var attack_strength := 1
 
 @onready var animated_sprites = $Sprites/AnimatedSprite2D
 @onready var sprites = $Sprites
-@onready var current_lives = lives:
+@onready var current_lives = stats.lives:
 	set(value):
 		value = clampi(value, 0, 3)
 		if value > current_lives:
@@ -67,7 +65,7 @@ func _unhandled_input(event):
 
 
 func attack() -> void:
-	hit_box.damage = attack_strength
+	hit_box.damage = stats.attack_strength
 	animation_player.play("attack")
 
 

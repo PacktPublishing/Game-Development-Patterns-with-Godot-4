@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Score="*res://Game/Score/Score.tscn"
 TeleportData="*res://Objects/Door/TeleportData/TeleportData.tscn"
+PowerUps="*res://Game/PowerUps/PowerUps.tscn"
 
 [display]
 

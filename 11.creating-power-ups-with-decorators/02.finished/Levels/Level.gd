@@ -9,6 +9,7 @@ func _ready():
 	player.global_position = find_child(TeleportData.target_portal_name).global_position
 	player.fade_in()
 	fade.play("fade_in")
+	PowerUps.player = player
 
 
 func _on_player_character_2d_died():

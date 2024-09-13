@@ -2,7 +2,6 @@ extends Node2D
 class_name BumpingPig
 
 @export var initial_direction = -1
-@export var max_health = 3
 
 @onready var body = $BumpingEnemy2D
 @onready var vision_area = $BumpingEnemy2D/Sprites/VisionArea2D
@@ -12,7 +11,7 @@ class_name BumpingPig
 @onready var loots = $BumpingEnemy2D/Loots
 @onready var throwable_factory = $BumpingEnemy2D/Sprites/ThrowableObjectFactory
 
-@onready var health = max_health
+@onready var lives = body.stats.lives
 @onready var state: BumpingPigState : set = set_state
 
 var picking_object_type := ""
