@@ -13,6 +13,10 @@ class_name Stats
 @export var max_slide_speed := 200 : set = set_max_slide_speed, get = get_max_slide_speed
 
 
+func _init() -> void:
+	lives = max_lives
+
+
 func set_gravity(new_gravity: float) -> void:
 	gravity = new_gravity
 
