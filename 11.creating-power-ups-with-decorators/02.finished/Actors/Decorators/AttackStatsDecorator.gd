@@ -1,4 +1,5 @@
 extends StatsDecorator
+class_name AttackStatsDecorator
 
 @export var bonus_attack := 3
 
