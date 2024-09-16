@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://cxkf516021f86"]
+[gd_scene load_steps=30 format=3 uid="uid://cxkf516021f86"]
 
 [ext_resource type="PackedScene" uid="uid://gcevl1ga7u1w" path="res://Levels/Level.tscn" id="1_fph8s"]
 [ext_resource type="PackedScene" uid="uid://b7ygipwdo26sw" path="res://Objects/Crate/LootCrate/LootCrate.tscn" id="2_be4tf"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://co2jesq7s1cgo" path="res://Actors/BumpingPig/BumpingPig.tscn" id="3_vsa4p"]
 [ext_resource type="PackedScene" uid="uid://btdmowk762lt6" path="res://Objects/Bomb/Bomb.tscn" id="4_of4bt"]
 [ext_resource type="PackedScene" uid="uid://co68v6mfnhdj1" path="res://Actors/CratePig/CratePig.tscn" id="6_y8bfe"]
+[ext_resource type="Script" path="res://Actors/Decorators/StatsDecorator.gd" id="7_5nj0d"]
 [ext_resource type="Script" path="res://Actors/Decorators/JumpStatsDecorator.gd" id="7_ifdcw"]
 [ext_resource type="Script" path="res://Actors/Decorators/SpeedStatsDecorator.gd" id="8_oij4f"]
 [ext_resource type="PackedScene" uid="uid://caheecjbjsnwd" path="res://Objects/Door/Door.tscn" id="8_tkleq"]
@@ -113,6 +114,118 @@ slide_gravity_factor = 0.2
 horizontal_gravity = 8000
 max_slide_speed = 200
 
+[sub_resource type="Resource" id="Resource_t6acp"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
+[sub_resource type="Resource" id="Resource_x06fu"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
+[sub_resource type="Resource" id="Resource_285no"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
+[sub_resource type="Resource" id="Resource_iq5jq"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
+[sub_resource type="Resource" id="Resource_rigsn"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
+[sub_resource type="Resource" id="Resource_rwjax"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
+[sub_resource type="Resource" id="Resource_d87ur"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
+[sub_resource type="Resource" id="Resource_7u3qy"]
+resource_local_to_scene = true
+script = ExtResource("7_5nj0d")
+gravity = 2000.0
+speed = 500.0
+jump_strength = 800.0
+max_lives = 3
+lives = 0
+attack_strength = 1
+wall_jump_strength = Vector2(800, -800)
+slide_gravity_factor = 0.2
+horizontal_gravity = 8000
+max_slide_speed = 200
+
 [node name="Level" instance=ExtResource("1_fph8s")]
 metadata/_edit_horizontal_guides_ = [220.0, 1472.0]
 metadata/_edit_vertical_guides_ = [0.0, 4540.0]
@@ -183,27 +296,35 @@ decorator = SubResource("Resource_4j30v")
 
 [node name="Diamond4" parent="Diamonds" index="4" instance=ExtResource("3_1qtke")]
 position = Vector2(2328, 735)
+decorator = SubResource("Resource_t6acp")
 
 [node name="Diamond5" parent="Diamonds" index="5" instance=ExtResource("3_1qtke")]
 position = Vector2(4180, 740)
+decorator = SubResource("Resource_x06fu")
 
 [node name="Diamond6" parent="Diamonds" index="6" instance=ExtResource("3_1qtke")]
 position = Vector2(4256, 612)
+decorator = SubResource("Resource_285no")
 
 [node name="Diamond7" parent="Diamonds" index="7" instance=ExtResource("3_1qtke")]
 position = Vector2(4316, 612)
+decorator = SubResource("Resource_iq5jq")
 
 [node name="Diamond8" parent="Diamonds" index="8" instance=ExtResource("3_1qtke")]
 position = Vector2(4292, 576)
+decorator = SubResource("Resource_rigsn")
 
 [node name="Diamond9" parent="Diamonds" index="9" instance=ExtResource("3_1qtke")]
 position = Vector2(3892, 732)
+decorator = SubResource("Resource_rwjax")
 
 [node name="Diamond10" parent="Diamonds" index="10" instance=ExtResource("3_1qtke")]
 position = Vector2(3892, 732)
+decorator = SubResource("Resource_d87ur")
 
 [node name="Diamond11" parent="Diamonds" index="11" instance=ExtResource("3_1qtke")]
 position = Vector2(3156, 608)
+decorator = SubResource("Resource_7u3qy")
 
 [node name="Crate" parent="Crates" index="0" instance=ExtResource("2_be4tf")]
 position = Vector2(816, 984)

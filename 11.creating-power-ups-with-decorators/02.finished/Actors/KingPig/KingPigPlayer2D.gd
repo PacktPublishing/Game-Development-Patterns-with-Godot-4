@@ -26,6 +26,7 @@ var fall_speed = 0.0
 func _ready() -> void:
 	for command in $Commands.get_children():
 		command.receiver = self
+	PowerUps.player = self
 
 
 func _physics_process(delta):

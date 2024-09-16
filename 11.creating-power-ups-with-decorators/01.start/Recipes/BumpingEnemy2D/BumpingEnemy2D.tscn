@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://c21v2tcsnb6gs" path="res://Recipes/BasicMovingCharacter2D/BasicMovingCharacter2D.tscn" id="1_c5py1"]
+[ext_resource type="Script" path="res://Recipes/BumpingEnemy2D/BumpingEnemy2D.gd" id="1_os32f"]
+
+[node name="BumpingEnemy2D" instance=ExtResource("1_c5py1")]
+collision_layer = 0
+script = ExtResource("1_os32f")
+speed = 300.0
+direction = -1

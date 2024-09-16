@@ -1,0 +1,236 @@
+[gd_scene load_steps=18 format=3 uid="uid://cwqrdhx25jfox"]
+
+[ext_resource type="Script" path="res://Screens/InputRemap/InputRemap.gd" id="1_0dvbk"]
+[ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://Interface/Fonts/Kenney Thick.ttf" id="2_k43wf"]
+[ext_resource type="PackedScene" uid="uid://cie0d61lvqb1v" path="res://Recipes/InputRemapButton/InputRemapButton.tscn" id="2_w6h4d"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_3ucww"]
+font = ExtResource("2_k43wf")
+font_size = 55
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3rnna"]
+bg_color = Color(0.945098, 0.509804, 0.419608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cgh7e"]
+bg_color = Color(0.988235, 0.615686, 0.494118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sher0"]
+bg_color = Color(0.890196, 0.301961, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qtqfr"]
+bg_color = Color(0.94902, 0.545098, 0.458824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_to83v"]
+content_margin_right = 14.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_5o1mo"]
+font = ExtResource("2_k43wf")
+font_size = 32
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_nsucs"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_bhir0"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_76vlw"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_urlo8"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_jklam"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_uguq7"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_s32xe"]
+
+[node name="InputRemap" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0dvbk")
+
+[node name="BackgroundColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.247059, 0.219608, 0.317647, 1)
+
+[node name="TitleLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -421.0
+offset_top = 75.0
+offset_right = 421.0
+offset_bottom = 165.0
+grow_horizontal = 2
+text = "Input Keybinding"
+label_settings = SubResource("LabelSettings_3ucww")
+
+[node name="BackButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -144.0
+offset_right = 140.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.968627, 0.964706, 0.980392, 1)
+theme_override_fonts/font = ExtResource("2_k43wf")
+theme_override_font_sizes/font_size = 33
+theme_override_styles/normal = SubResource("StyleBoxFlat_3rnna")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cgh7e")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_sher0")
+theme_override_styles/focus = SubResource("StyleBoxFlat_qtqfr")
+text = "Back"
+
+[node name="RemappingControl" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -334.0
+offset_top = -223.0
+offset_right = 320.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_to83v")
+follow_focus = true
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RemappingControl"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="HBoxContainer7" type="HBoxContainer" parent="RemappingControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RemapLabel" type="Label" parent="RemappingControl/VBoxContainer/HBoxContainer7"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Up"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer7" instance=ExtResource("2_w6h4d")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_nsucs")
+binding_action = "move_up"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="RemappingControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RemapLabel" type="Label" parent="RemappingControl/VBoxContainer/HBoxContainer4"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Down"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer4" instance=ExtResource("2_w6h4d")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_bhir0")
+binding_action = "move_down"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="RemappingControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RemapLabel" type="Label" parent="RemappingControl/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Left"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer" instance=ExtResource("2_w6h4d")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_76vlw")
+binding_action = "move_left"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="RemappingControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RemapLabel" type="Label" parent="RemappingControl/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Right"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer2" instance=ExtResource("2_w6h4d")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_urlo8")
+binding_action = "move_right"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="RemappingControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RemapLabel" type="Label" parent="RemappingControl/VBoxContainer/HBoxContainer3"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "Jump"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer3" instance=ExtResource("2_w6h4d")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_jklam")
+binding_action = "jump"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="RemappingControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RemapLabel" type="Label" parent="RemappingControl/VBoxContainer/HBoxContainer5"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Interact"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer5" instance=ExtResource("2_w6h4d")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_uguq7")
+binding_action = "interact"
+
+[node name="HBoxContainer6" type="HBoxContainer" parent="RemappingControl/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 65
+
+[node name="RemapLabel" type="Label" parent="RemappingControl/VBoxContainer/HBoxContainer6"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 5
+text = "Attack"
+label_settings = SubResource("LabelSettings_5o1mo")
+
+[node name="RemapButton" parent="RemappingControl/VBoxContainer/HBoxContainer6" instance=ExtResource("2_w6h4d")]
+layout_mode = 2
+button_group = SubResource("ButtonGroup_s32xe")
+
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
