@@ -9,6 +9,6 @@ class_name Diamond
 
 
 func _on_interactive_area_2d_interaction_available():
-	PowerUps.add_power_up(decorator)
+	PowerUpsSingleton.add_power_up(decorator)
 	score_points.increase_score()
 	queue_free()

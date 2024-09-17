@@ -5,4 +5,4 @@ class_name SpeedStatsDecorator
 
 
 func get_speed() -> float:
-	return decorated_stats.speed * speed_multiplier if decorated_stats else speed_multiplier
+	return decorated_stats.speed * speed_multiplier if decorated_stats else super()

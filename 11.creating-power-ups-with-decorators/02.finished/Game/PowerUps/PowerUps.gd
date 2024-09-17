@@ -1,4 +1,5 @@
 extends Node
+class_name PowerUps
 
 @onready var timer := $Timer
 var player: KingPigPlayer2D
