@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://b4tr5hrffgx4g"]
+
+[ext_resource type="PackedScene" uid="uid://cy6u3vdwj6o2k" path="res://Recipes/MovingPlatform2D/MovingPlatform2D.tscn" id="1_w8bnl"]
+
+[node name="PathFollowPlatform2D" type="PathFollow2D"]
+rotates = false
+loop = false
+
+[node name="RemoteTransform2d" type="RemoteTransform2D" parent="."]
+remote_path = NodePath("../MovingPlatform2D")
+
+[node name="MovingPlatform2D" parent="." instance=ExtResource("1_w8bnl")]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionPolygon2d" type="CollisionPolygon2D" parent="MovingPlatform2D"]
+polygon = PackedVector2Array(-80, -80, -80, 0, 80, 0, 80, -80)
+one_way_collision = true
+
+[node name="Polygon2d" type="Polygon2D" parent="MovingPlatform2D"]
+color = Color(0.278431, 0.231373, 0.470588, 1)
+polygon = PackedVector2Array(-80, -80, -80, 0, 80, 0, 80, -80)
