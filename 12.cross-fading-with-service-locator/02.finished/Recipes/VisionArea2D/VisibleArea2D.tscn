@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7hu570y7fyjc"]
+
+[ext_resource type="Script" path="res://Recipes/VisionArea2D/VisibleArea2D.gd" id="1_sbecq"]
+
+[node name="VisibleArea2D" type="Area2D"]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_sbecq")
+interaction_strategy_file = "res://Actors/BumpingPig/InteractionStrategies/InteractionStrategy.gd"

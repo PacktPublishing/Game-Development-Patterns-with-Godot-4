@@ -6,4 +6,3 @@ extends Command
 
 func execute() -> void:
 	receiver.throw(throw_force)
-	receiver.vision_area.call_deferred("set_monitoring", true)

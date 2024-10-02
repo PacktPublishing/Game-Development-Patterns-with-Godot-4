@@ -1,0 +1,118 @@
+[gd_scene load_steps=8 format=3 uid="uid://pfxrkkuaocq2"]
+
+[ext_resource type="Texture2D" uid="uid://bkgan58n70g8q" path="res://Assets/Kings and Pigs/10-Cannon/Cannon Ball.png" id="1_50ij0"]
+[ext_resource type="Script" path="res://Objects/Cannon/CannonBall.gd" id="1_jpcad"]
+[ext_resource type="PackedScene" uid="uid://cqypq0f7mfab6" path="res://Recipes/Hazard2D/HitArea2D.tscn" id="2_djdwm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qtof"]
+radius = 24.0
+
+[sub_resource type="Animation" id="Animation_r34ur"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitArea2D/CollisionShape2D:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3fy1m"]
+resource_name = "vanish"
+length = 0.3
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.19, 0.25),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitArea2D/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_di3qe"]
+_data = {
+"RESET": SubResource("Animation_r34ur"),
+"vanish": SubResource("Animation_3fy1m")
+}
+
+[node name="CannonBall" type="RigidBody2D"]
+collision_layer = 256
+collision_mask = 259
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_jpcad")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(4, 4)
+texture = ExtResource("1_50ij0")
+region_enabled = true
+region_rect = Rect2(23, 13, 12, 12)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6qtof")
+
+[node name="HitArea2D" parent="." instance=ExtResource("2_djdwm")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitArea2D"]
+shape = SubResource("CircleShape2D_6qtof")
+debug_color = Color(0.996966, 0, 0.176064, 0.42)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_di3qe")
+}
+
+[node name="VanishTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="hit_landed" from="HitArea2D" to="." method="_on_hit_area_2d_hit_landed"]
+[connection signal="timeout" from="VanishTimer" to="." method="_on_timer_timeout"]
