@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://c6rp66km8tou7"]
+
+[ext_resource type="Script" path="res://Game/BackgroundMusic/BackgroundMusicLocator.gd" id="1_s20iy"]
+[ext_resource type="AudioStream" uid="uid://cmm3rkq7silyu" path="res://Assets/Juhani Junkala [Chiptune Adventures] OGG/Juhani Junkala [Chiptune Adventures] 1. Stage 1.ogg" id="2_3q44i"]
+
+[node name="BackgroundMusic" type="Node"]
+script = ExtResource("1_s20iy")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_3q44i")
+volume_db = -18.0
+autoplay = true

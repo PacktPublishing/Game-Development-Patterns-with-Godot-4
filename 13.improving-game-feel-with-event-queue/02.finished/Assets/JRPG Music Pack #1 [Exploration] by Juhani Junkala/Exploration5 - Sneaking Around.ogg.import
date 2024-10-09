@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://b1eutiyfrfef4"
+path="res://.godot/imported/Exploration5 - Sneaking Around.ogg-2a97e6289859bb5ccd48d66d0aad028f.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/JRPG Music Pack #1 [Exploration] by Juhani Junkala/Exploration5 - Sneaking Around.ogg"
+dest_files=["res://.godot/imported/Exploration5 - Sneaking Around.ogg-2a97e6289859bb5ccd48d66d0aad028f.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

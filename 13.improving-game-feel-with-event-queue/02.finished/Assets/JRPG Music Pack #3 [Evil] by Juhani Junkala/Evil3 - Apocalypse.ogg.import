@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bvofdicxb24m5"
+path="res://.godot/imported/Evil3 - Apocalypse.ogg-2db482e972ffb1357190cef7a33b1b33.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/JRPG Music Pack #3 [Evil] by Juhani Junkala/Evil3 - Apocalypse.ogg"
+dest_files=["res://.godot/imported/Evil3 - Apocalypse.ogg-2db482e972ffb1357190cef7a33b1b33.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

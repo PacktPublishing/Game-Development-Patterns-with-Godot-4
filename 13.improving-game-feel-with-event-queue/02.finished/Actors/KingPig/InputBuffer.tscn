@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsqj81dorukdh"]
+
+[ext_resource type="Script" path="res://Actors/KingPig/InputBuffer.gd" id="1_qicmo"]
+
+[node name="InputBuffer" type="Node"]
+script = ExtResource("1_qicmo")
+expiration_time = 0.5
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

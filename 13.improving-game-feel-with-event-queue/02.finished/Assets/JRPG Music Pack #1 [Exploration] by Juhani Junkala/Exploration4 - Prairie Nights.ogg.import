@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://duu8kckndvdpq"
+path="res://.godot/imported/Exploration4 - Prairie Nights.ogg-492ff0ad2c13bc9ad2b8541faab9f28e.oggvorbisstr"
+
+[deps]
+
+source_file="res://Assets/JRPG Music Pack #1 [Exploration] by Juhani Junkala/Exploration4 - Prairie Nights.ogg"
+dest_files=["res://.godot/imported/Exploration4 - Prairie Nights.ogg-492ff0ad2c13bc9ad2b8541faab9f28e.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
