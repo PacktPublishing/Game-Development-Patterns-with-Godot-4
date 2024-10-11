@@ -1,0 +1,10 @@
+
+Hi, I'm Juhani Junkala, the author of this music collection. I'm a classically trained composer, producer and a sound designer with over 20 years of experience.
+
+These music tracks have been released under CC0 creative commons license. You can do anything you want with these tunes.
+
+Check out my game audio portfolio: https://www.youtube.com/watch?v=tvY0FD_rCIo
+
+Homepage: https://juhanijunkala.com/
+
+If you need music or sound effects for your game, contact me: juhani.junkala@musician.org

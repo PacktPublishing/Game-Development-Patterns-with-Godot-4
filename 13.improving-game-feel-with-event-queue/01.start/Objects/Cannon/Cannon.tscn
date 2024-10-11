@@ -1,0 +1,117 @@
+[gd_scene load_steps=10 format=3 uid="uid://cupbfyeu4wxmb"]
+
+[ext_resource type="PackedScene" uid="uid://c5vhmxgxun2py" path="res://Objects/Node2DFactory/Node2DFactory.tscn" id="1_e5idw"]
+[ext_resource type="Script" path="res://Objects/Cannon/Cannon.gd" id="1_wt23b"]
+[ext_resource type="PackedScene" uid="uid://pfxrkkuaocq2" path="res://Objects/Cannon/CannonBall.tscn" id="2_xrbm0"]
+[ext_resource type="SpriteFrames" uid="uid://bk6axm18oghxc" path="res://Assets/Kings and Pigs/10-Cannon/CannonSpriteFrames.tres" id="3_x07md"]
+[ext_resource type="PackedScene" uid="uid://c7hu570y7fyjc" path="res://Recipes/VisionArea2D/VisibleArea2D.tscn" id="5_15gfr"]
+
+[sub_resource type="Animation" id="Animation_cv2f7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+
+[sub_resource type="Animation" id="Animation_brnqq"]
+resource_name = "shoot"
+length = 0.40001
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [&"shoot", &"idle"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 0]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"fire"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nlmrq"]
+_data = {
+"RESET": SubResource("Animation_cv2f7"),
+"shoot": SubResource("Animation_brnqq")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh72e"]
+size = Vector2(12, 24)
+
+[node name="Cannon" type="Node2D"]
+position = Vector2(644, 364)
+script = ExtResource("1_wt23b")
+shooting_speed = -1200.0
+
+[node name="CannonBallFactory" parent="." instance=ExtResource("1_e5idw")]
+position = Vector2(-32, -44)
+product_packed_scene = ExtResource("2_xrbm0")
+target_container_name = &"Bombs"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(-4, 4)
+sprite_frames = ExtResource("3_x07md")
+animation = &"idle"
+offset = Vector2(8, -11)
+flip_h = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nlmrq")
+}
+
+[node name="VisibleArea2D" parent="." instance=ExtResource("5_15gfr")]
+position = Vector2(0, -36)
+interaction_strategy_file = "res://Actors/BumpingPig/InteractionStrategies/CannonInteractionStrategy.gd"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="VisibleArea2D"]
+position = Vector2(38, -8)
+shape = SubResource("RectangleShape2D_bh72e")
+debug_color = Color(0.595182, 0.545617, 0, 0.42)

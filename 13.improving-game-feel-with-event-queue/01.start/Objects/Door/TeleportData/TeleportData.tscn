@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://hal0jofp2yhc"]
+
+[ext_resource type="Script" path="res://Objects/Door/TeleportData/TeleportData.gd" id="1_8vpxf"]
+
+[node name="TeleportData" type="Node"]
+script = ExtResource("1_8vpxf")

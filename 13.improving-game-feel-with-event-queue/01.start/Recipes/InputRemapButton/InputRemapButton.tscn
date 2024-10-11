@@ -1,0 +1,38 @@
+[gd_scene load_steps=8 format=3 uid="uid://cie0d61lvqb1v"]
+
+[ext_resource type="Script" path="res://Recipes/InputRemapButton/InputRemapButton.gd" id="1_mo2am"]
+[ext_resource type="FontFile" uid="uid://fbxdyn186ebu" path="res://Interface/Fonts/Kenney Thick.ttf" id="1_n5ro7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hlo7q"]
+bg_color = Color(0.945098, 0.509804, 0.419608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r7ml2"]
+bg_color = Color(0.988235, 0.615686, 0.494118, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4tose"]
+bg_color = Color(0.890196, 0.301961, 0.301961, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cj4jr"]
+bg_color = Color(0.94902, 0.545098, 0.458824, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_uwcl0"]
+
+[node name="InputRemapButton" type="Button"]
+custom_minimum_size = Vector2(128, 40)
+offset_right = 128.0
+offset_bottom = 40.0
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("1_n5ro7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_hlo7q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_r7ml2")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4tose")
+theme_override_styles/focus = SubResource("StyleBoxFlat_cj4jr")
+toggle_mode = true
+button_group = SubResource("ButtonGroup_uwcl0")
+text = "unset"
+script = ExtResource("1_mo2am")
