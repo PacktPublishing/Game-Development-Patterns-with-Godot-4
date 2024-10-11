@@ -18,21 +18,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		timer.start(expiration_time)
 
 
-func clear_queue() -> void:
-	event_queue.clear()
+func pop_next_event() -> InputEvent:
+	return event_queue.pop_front()
 
-
-func process_queue() -> void:
-	event_queue.pop_front()
-
-
-func process_by_action_name(input_event_action: String) -> InputEventKey:
-	var event_index: int
-	for index in range(event_queue.size()):
-		if event_queue[index].is_action(input_event_action):
-			event_index = index
-			break
-	return event_queue.pop_at(event_index)
 
 func has_action(input_action_name: String) -> bool:
 	var has_action := false
@@ -43,6 +31,18 @@ func has_action(input_action_name: String) -> bool:
 	return has_action
 
 
+func process_by_action_name(input_event_action: String) -> InputEventKey:
+	var event_index: int
+	for index in range(event_queue.size()):
+		if event_queue[index].is_action(input_event_action):
+			event_index = index
+			break
+	
+	return event_queue.pop_at(event_index)
+
+
 func _on_timer_timeout() -> void:
 	if event_queue.size() > 0:
-		process_queue()
+		pop_next_event()
+	else:
+		timer.stop()

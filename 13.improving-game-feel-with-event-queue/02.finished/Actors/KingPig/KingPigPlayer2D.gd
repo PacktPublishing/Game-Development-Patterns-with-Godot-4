@@ -19,6 +19,7 @@ signal lives_decreased(amount)
 @onready var hit_box = $HitArea2D
 @onready var animation_player = $AnimationPlayer
 @onready var attack_command := $Commands/AttackCommand
+
 @onready var input_buffer := $InputBuffer
 
 var fall_speed = 0.0
@@ -57,7 +58,8 @@ func _physics_process(delta):
 		if input_buffer.has_action("jump"):
 			if input_buffer.process_by_action_name("jump").is_pressed() and Input.is_action_pressed("jump"):
 				jump_command.execute()
-		animation = "ground"
+		else:
+			animation = "ground"
 	animated_sprites.play(animation)
 
 
