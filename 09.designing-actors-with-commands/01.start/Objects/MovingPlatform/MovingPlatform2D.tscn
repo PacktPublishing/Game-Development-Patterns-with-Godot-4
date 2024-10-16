@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="PackedScene" uid="uid://cy6u3vdwj6o2k" path="res://Recipes/MovingPlatform2D/MovingPlatform2D.tscn" id="1_yoecf"]
+[ext_resource type="Texture2D" uid="uid://bvubeecdk7rkl" path="res://Assets/Kings and Pigs/14-TileSets/Decorations (32x32).png" id="2_j6aid"]
+
+[node name="MovingPlatform2D" instance=ExtResource("1_yoecf")]
+collision_layer = 2
+collision_mask = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="." index="0"]
+position = Vector2(0, -16)
+scale = Vector2(4, 4)
+texture = ExtResource("2_j6aid")
+region_enabled = true
+region_rect = Rect2(160, 64, 32, 16)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="1"]
+polygon = PackedVector2Array(-64, -48, -64, 0, 64, 0, 64, -48)
+one_way_collision = true

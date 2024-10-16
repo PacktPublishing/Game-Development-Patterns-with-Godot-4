@@ -30,7 +30,7 @@
 [ext_resource type="Script" path="res://Actors/BumpingPig/States/BombIdleBumpingPigState.gd" id="21_oe36t"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/States/BombRunBumpingPigState.gd" id="22_07l43"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/States/BombPickingBumpingPigState.gd" id="22_h03rt"]
-[ext_resource type="Script" path="res://Actors/BumpingPig/Commands/BombThrowCommand.gd" id="22_vb0de"]
+[ext_resource type="Script" path="res://Actors/BumpingPig/States/BombThrowBumpingPigState.gd" id="22_vb0de"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/Commands/ThrowCommand.gd" id="25_ris1x"]
 [ext_resource type="Script" path="res://Actors/BumpingPig/Commands/PickBombCommand.gd" id="31_2wtvc"]
 
