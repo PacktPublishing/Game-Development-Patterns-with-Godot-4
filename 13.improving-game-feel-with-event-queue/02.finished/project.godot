@@ -26,6 +26,7 @@ BackgroundMusic="*res://Game/BackgroundMusic/BackgroundMusic.tscn"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/size/mode=3
 window/size/window_width_override=1280
 window/size/window_height_override=720
 window/stretch/mode="viewport"
@@ -34,6 +35,10 @@ window/stretch/mode="viewport"
 
 naming/scene_name_casing=1
 naming/script_name_casing=1
+
+[global_group]
+
+shatter=""
 
 [input]
 

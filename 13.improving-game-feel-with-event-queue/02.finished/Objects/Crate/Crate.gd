@@ -26,4 +26,5 @@ func shatter():
 
 
 func _on_body_entered(body: Node) -> void:
-	pass
+	if body.is_in_group("shatter"):
+		shatter()

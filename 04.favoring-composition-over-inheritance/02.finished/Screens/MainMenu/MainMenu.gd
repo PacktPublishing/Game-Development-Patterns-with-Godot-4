@@ -2,8 +2,8 @@ extends Control
 
 const CONTROL_SETTINGS_FILE_PATH = "user://control_settings.json"
 
-@export_file("*.tscn") var start_scene_path = "res://Levels/Level1.tscn"
-@export_file("*.tscn") var controls_scene_path = "res://Interface/InputRemap/InputRemap.tscn"
+@export_file("*.tscn") var start_scene_path = "res://Levels/Level.tscn"
+@export_file("*.tscn") var controls_scene_path = "res://Screens/InputRemap/InputRemap.tscn"
 
 
 func _ready():
