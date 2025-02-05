@@ -12,7 +12,7 @@ func create(_product_packed_scene := product_packed_scene) -> Node2D:
 	product.global_position = global_position
 	
 	var container = find_parent("Level").find_child(target_container_name)
-	container.add_child(product)
+	container.call_deferred("add_child", product)
 	
 	created.emit(product)
 	return product
