@@ -226,17 +226,22 @@ tracks/0/keys = {
 "update": 1,
 "values": [ExtResource("6_fclpq"), ExtResource("1_78fl8")]
 }
-tracks/1/type = "value"
+tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterBody2D/HurtBox2D/CollisionShape2D:disabled")
+tracks/1/path = NodePath("CharacterBody2D/HurtBox2D/CollisionShape2D")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
+"values": [{
+"args": [&"disabled", true],
+"method": &"set_deferred"
+}, {
+"args": [&"disabled", false],
+"method": &"set_deferred"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_17jms"]
